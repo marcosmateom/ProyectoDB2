@@ -43,35 +43,28 @@ public class modificarCliente0 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
                 //String db_name = "SegurosGio", db_col_name = "Usuarios";
-		String _id, tipo_poliza, nombre, apellido, telefono, email, dpi, contE, telContE;
+		String  nombre, apellido, _id, tipo_poliza, telefono, email, documentoIdentificacion, contacto_emergencia, telefono_contacto_e;
 		_id = request.getParameter("poliza").toString();
 		/*try {*/
 			//MongoClient conn = gio.co.seguros.MongoConnectDB.connectMongo();
                         //MongoDatabase db = conn.getDatabase(db_name);
                         //MongoCollection<Document> coll = db.getCollection(db_col_name);
-                        MongoCollection<Document> coll = gio.co.seguros.collUsuarios.collUsuarios();
+                        MongoCollection<Document> coll = gio.co.seguros.collClientes.collclientes();
                         try {
-                        //Document document = coll.find(new BasicDBObject("_id", new ObjectId(_id))).projection(Projections.fields(Projections.include("tipo_poliza", "nombre","apellido","telefono","email","documentoIdentificacion", "contacto_emergencia", "Telefono-contacto_e"), Projections.excludeId())).first();
-                        Document document = coll.find(new BasicDBObject("apellido", "marroquin")).projection(Projections.fields(Projections.include("nombre"/*, "nombre","apellido","telefono","email","documentoIdentificacion", "contacto_emergencia", "Telefono-contacto_e"*/), Projections.excludeId())).first();
-                        //tipo_poliza = document.getString("tipo_poliza");
+                        Document document = coll.find(new BasicDBObject("_id", new ObjectId(_id))).projection(Projections.fields(Projections.include("nombre","apellido","telefono", "email", "documentoIdentificacion", "contacto_emergencia", "telefono_contacto_e", "tipo_poliza"), Projections.excludeId())).first();
+                        
                         nombre = document.getString("nombre");
-                        /*apellido = document.getString("apellido");
+                        apellido = document.getString("apellido");
                         telefono = document.getString("telefono");
+                        tipo_poliza= document.getString("tipo_poliza");
                         email = document.getString("email");
-                        dpi = document.getString("documentoIdentificacion");
-                        contE = document.getString("contacto_emergencia");
-                        telContE = document.getString("telefono_contacto_e");*/
-                        tipo_poliza ="76";
-                        //nombre = "a";
-                        apellido ="b";
-                        telefono ="123";
-                        email ="@@";
-                        dpi ="987";
-                        contE ="pepe";
-                        telContE="5647";
+                        documentoIdentificacion = document.getString("documentoIdentificacion"); 
+                        contacto_emergencia = document.getString("contacto_emergencia");
+                        telefono_contacto_e = document.getString("telefono_contacto_e");
                         
+
                         
-                        response.sendRedirect(String.format("modificarCliente.jsp?_id=%s&tipo_poliza=%s&nombre=%s&apellido=%s&telefono=%s&email=%s&dpi=%s&contE=%s&telContE=%s", _id, tipo_poliza, nombre, apellido, telefono, email, dpi, contE, telContE));
+                        response.sendRedirect(String.format("modificarCliente.jsp?nombreS=%s&apellidoS=%s&telefono=%s", nombre, apellido, telefono));
                         
                         //request.setAttribute("usuarioS", usuario);
                         /*request.setAttribute("nombreS", nombre);
@@ -90,18 +83,5 @@ public class modificarCliente0 extends HttpServlet {
         
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
