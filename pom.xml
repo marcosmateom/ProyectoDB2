@@ -7,7 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>proyectoDB2</name>
+    <name>proyectoDB2Seguros</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -87,4 +87,5 @@
     </build>
 
 </project>
+
 

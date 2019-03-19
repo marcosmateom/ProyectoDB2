@@ -14,11 +14,10 @@
         <div class="grid-container">
         <div class="grid-x grid-margin-x align-center">
             <form class="cell small-12 medium-8" action="modificarUsuario" method="post">
-                <h1>Se modificara el Cliente  <%= request.getParameter("usuarioS") %> </h1>
+                <h1>Se modificara el Cliente</h1>
+                <h4><%= request.getParameter("id") %></h4>
                 <h4 class="text-center">Ingresa los datos</h4>
-                Usuario:<br>
-                <input type="hidden" name="usuarioww" value="<%= request.getParameter("usuarioS") %>">                
-                <input type="text" name="usuariow" value="<%= request.getParameter("usuarioS") %>" placeholder="Ingrese el nombre de usuario ej. mige97">
+                <input type="hidden" name="usuarioww" value="<%= request.getParameter("id") %>">                
                 <br> Nombre del Cliente:<br>
                 <input type="text" name="nombre" value="<%= request.getParameter("nombreS") %>" placeholder="Ingrese el nombre del empleado">
                 <br> Nombre del Cliente:<br>
@@ -26,18 +25,28 @@
                 <br> Telefono:<br>
                 <input type="text" name="telefono" value="<%= request.getParameter("telefono") %>" placeholder="ingrese el numero de telefono del Cliente">
                 <br> e-mail:<br>
-                <input type="text" name="email" value="" placeholder="ingrese el correo electronico del Cliente">
+                <input type="text" name="email" value="<%= request.getParameter("email") %>" placeholder="ingrese el correo electronico del Cliente">
+                <br> tipo de poliza:<br>
+                <input type="text" name="email" value="<%= request.getParameter("tipoPoliza") %>" placeholder="ingrese el correo electronico del Cliente">
                 <br> documento de identificacion del cliente:<br>
-                <input type="text" name="doc" value="" placeholder="Ingrese el numero de identificacion del cliente">
+                <input type="text" name="doc" value="<%= request.getParameter("documentoIdentificacion") %>" placeholder="Ingrese el numero de identificacion del cliente">
                 <br> contacto de emergencia:<br>
-                <input type="text" name="contactoE" value="" placeholder="ingreseel nombre de la persona a contactar en caso de emergencia">
+                <input type="text" name="contactoE" value="<%= request.getParameter("contacto_emergencia") %>" placeholder="ingreseel nombre de la persona a contactar en caso de emergencia">
                 <br> Telefono del contacto de emergencia:<br>
-                <input type="text" name="telEm" value="" placeholder="ingrese datos tecnicos del producto">
+                <input type="text" name="telEm" value="<%= request.getParameter("telefono_contacto_e") %>" placeholder="ingrese datos tecnicos del producto">
                 <input class="button small-12 cell" type="submit" name="submit" value="Agregar Cliente" />
             </form>
         </div>
     </div>
     </body>
 </html>
+
+
+
+
+
+
+
+
 
 

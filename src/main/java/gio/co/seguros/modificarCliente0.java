@@ -64,7 +64,7 @@ public class modificarCliente0 extends HttpServlet {
                         
 
                         
-                        response.sendRedirect(String.format("modificarCliente.jsp?nombreS=%s&apellidoS=%s&telefono=%s", nombre, apellido, telefono));
+                        response.sendRedirect(String.format("modificarCliente.jsp?nombreS=%s&apellidoS=%s&telefono=%s&tipoPoliza=%s&email=%s&documentoIdentificacion=%s&contacto_emergencia=%s&telefono_contacto_e=%s&id=%s", nombre, apellido, telefono, tipo_poliza, email, documentoIdentificacion, contacto_emergencia, telefono_contacto_e, _id));
                         
                         //request.setAttribute("usuarioS", usuario);
                         /*request.setAttribute("nombreS", nombre);
@@ -83,5 +83,11 @@ public class modificarCliente0 extends HttpServlet {
         
     
 }
+
+
+
+
+
+
 
 
