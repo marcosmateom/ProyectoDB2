@@ -56,11 +56,11 @@ public class mongoLista extends HttpServlet {
                         MongoDatabase db = conn.getDatabase(db_name);
                         MongoCollection<Document> coll = db.getCollection(db_col_name);
                         try {
-                            Document document = coll.find().projection(Projections.fields(Projections.include("nombre","apellido","telefono", "email", "documentoIdentificacion", "contacto_emergencia", "telefono_contacto_e", "tipo_poliza"), Projections.excludeId())).first();
-                            ArrayList<Document> pp;
+                            //Document document = coll.find().projection(Projections.fields(Projections.include("nombre","apellido","telefono", "email", "documentoIdentificacion", "contacto_emergencia", "telefono_contacto_e", "tipo_poliza"), Projections.excludeId())).first();
+                            //ArrayList<Document> pp;
                             
-                            /*List<Document> clientes = (List<Document>) coll.find().into( new ArrayList<Document>());
-                            request.setAttribute("clientes", clientes);*/
+                            List<Document> clientes = (List<Document>) coll.find().into( new ArrayList<Document>());
+                            request.setAttribute("clientes", clientes);
                             RequestDispatcher rd = request.getRequestDispatcher("p.jsp");
                             rd.forward(request, response);
                             
@@ -71,5 +71,6 @@ public class mongoLista extends HttpServlet {
 	}
     
 }
+
 
 
