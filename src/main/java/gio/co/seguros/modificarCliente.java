@@ -68,7 +68,7 @@ public class modificarCliente extends HttpServlet {
                             updateFields.append("documentoIdentificacion", documentoIdentificacion);
                             updateFields.append("contacto_emergencia", contacto_emergencia);
                             updateFields.append("telefono_contacto_e", telefono_contacto_e);
-                            BasicDBObject searchQuery = new BasicDBObject().append("_id",  new ObjectId(_id)));
+                            BasicDBObject searchQuery = new BasicDBObject().append("_id",  new ObjectId(_id));
 
                            //coll.replaceOne(searchQuery, updateFields);
                             
@@ -103,6 +103,8 @@ public class modificarCliente extends HttpServlet {
 
     
 }
+
+
 
 
 
