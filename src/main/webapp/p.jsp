@@ -10,32 +10,43 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
+    <jsp:include page="partials/_head.jsp">
+        <jsp:param name="title" value="Agregar Paciente" />
+    </jsp:include>
+    <!--navbar logged-->
+
     <body>
         <h1>Hello World!</h1>
         
-        <%
-            ArrayList<Document> clientes=(ArrayList<Document>) request.getAttribute("clientes"); 
-            int i;
-            int j=0;
-                            int num = clientes.size();
-                            JSONArray arr = new JSONArray();
-                            for(i=0; i<clientes.size(); i++){
-                                String cliente = clientes.get(i).toJson();
-                                arr.put(cliente);
-                            }
-        %>
-        <tr>
-            <td><%out.println(arr);%></td>
-        <br>
-         </tr>
-<%%>
+        <table>
+            <thead>
+                <tr>
+                    
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Puesto</th>
+                    <th>Accion</th>
+                    
+                </tr>
+            </thead>
+            <tbody id="dat">
+            </tbody>
+        </table>
         
     </body>
+    <script src="js/Usuarios.js"></script>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 

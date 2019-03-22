@@ -19,6 +19,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.bson.Document;
+import org.codehaus.jettison.json.JSONArray;
 
 /**
  *
@@ -29,47 +30,42 @@ import org.bson.Document;
 
 public class UsuarioResource {
     
-        /*protected List<Usuarios> patientsList = new ArrayList<Usuarios>();
+        protected List<Document> usersList;// = new List<Document>();
         @GET
         @Path("/getUsuario")
         @Produces(MediaType.APPLICATION_JSON)
-        public List<Usuarios> getUsuario(){
+        public List<Document> getUsuario(){
+        //Obtener # del hospital
+        makeList();
+        
+        return usersList;
+        }
+    
+    /*protected JSONArray userList = new JSONArray();
+        @GET
+        @Path("/getUsuario")
+        @Produces(MediaType.APPLICATION_JSON)
+        public JSONArray getUsuario(){
         //Obtener # del hospital
         makeList();
         
         return userList;
         }*/
     
-    protected List<Usuarios> userList = new ArrayList<Usuarios>();
-        @GET
-        @Path("/getUsuario")
-        @Produces(MediaType.APPLICATION_JSON)
-        public List<Usuarios> getUsuario(){
-        //Obtener # del hospital
-        makeList();
-        
-        return userList;
-        }
-    
     
         
-        @GET
-        @Path("/getUsuario/{uId}")
-        @Produces(MediaType.APPLICATION_JSON)
-        public Response getMsg(@PathParam("uId") String name) {
-            String output = "<html> " + "<title>" + "Java WebService Example" + "</title>"  + "<body><h1><div style='font-size: larger;'>"
-                    + "Hello <span style='text-transform: capitalize; color: green;'>" + name + "</span></div></h1></body>" + "</html>";
-            return Response.status(200).entity(output).build();
-        }
+
         
         protected void makeList(){
         
         //Conexion con db oracle
-        MongoCollection<Document> coll = gio.co.seguros.collUsuarios.collUsuarios();
+        
             //Response info
             try{
-                
-                
+                MongoCollection<Document> coll = gio.co.seguros.collUsuarios.collUsuarios();
+                List<Document> clientes = (List<Document>) coll.find().into( new ArrayList<Document>());
+                usersList = clientes;
+
                 
             }catch(Exception e){
                 System.err.println(e);
@@ -77,5 +73,10 @@ public class UsuarioResource {
     }
     
 }
+
+
+
+
+
 
 
