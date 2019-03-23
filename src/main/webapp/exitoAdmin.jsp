@@ -21,10 +21,11 @@
         <br>
         <a href="tipoSeguro.jsp">administracion de tipo de polizas</a>
         <br>
-        <a href="listaUsuarios.jsp">Ver usuarios</a>
+        <a href="listaUsuarios.jsp" class="button">Ver usuarios</a>
 
     </body>
 </html>
+
 
 
 

@@ -13,6 +13,7 @@ gio\co\seguros\Cliente\ClienteResource.class
 gio\co\seguros\nuevaPoliza.class
 gio\co\seguros\collPoliza.class
 gio\co\seguros\modificarCliente.class
+gio\co\seguros\Poliza\PolizaResource.class
 gio\co\seguros\Usuario\Usuarios.class
 gio\co\seguros\collClientes.class
 gio\co\seguros\Usuario\UsuarioResource.class

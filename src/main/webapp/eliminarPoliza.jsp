@@ -6,6 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    String nPoliza = request.getParameter("nPoliza");
+    if(nPoliza==null)
+    {
+        nPoliza="";
+    }
+//= request.getParameter("usuario") 
+%>
 <html>
     <jsp:include page="partials/_head.jsp">
         <jsp:param name="title" value="Eliminar Cliente" />
@@ -17,7 +25,7 @@
                 <form class="cell small-12 medium-8" action="eliminarPoliza" method="post">
                     <h4 class="text-center">Ingrese el nombre de la poliza a eliminar</h4>
                     poliza:<br>
-                    <input type="text" name="nPoliza" value="" placeholder="ej. premium">
+                    <input type="text" name="nPoliza" value="<%= nPoliza %>" placeholder="ej. premium">
                     <br>
                     <input class="button small-12 cell" type="submit" name="submit" value="Eliminar Poliza" />
                 </form>
@@ -25,3 +33,4 @@
         </div>
     </body>
 </html>
+
