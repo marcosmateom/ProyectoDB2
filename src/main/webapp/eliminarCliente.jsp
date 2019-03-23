@@ -8,10 +8,9 @@
 <!DOCTYPE html>
 <%
     String identificacion = request.getParameter("identificacion");
-    String id = request.getParameter("_id");
     if(identificacion==null)
     {
-        id="";
+        identificacion="";
     }
 //= request.getParameter("usuario") 
 %>
@@ -25,8 +24,8 @@
             <div class="grid-x grid-margin-x align-center">
                 <form class="cell small-12 medium-8" action="eliminarCliente" method="post">
                     <h4 class="text-center">Ingrese el numero de identificacion del cliente a eliminar</h4>
-                    poliza:<br>
-                    <input type="text" name="poliza" value="<%= id %>" placeholder="Ingrese el numero de identificacion del cliente">
+                    Numero de identificacion:<br>
+                    <input type="text" name="poliza" value="<%= identificacion %>" placeholder="Ingrese el numero de identificacion del cliente">
                     <br>
                     <input class="button small-12 cell" type="submit" name="submit" value="Eliminar Cliente" />
                 </form>
@@ -34,6 +33,8 @@
         </div>
     </body>
 </html>
+
+
 
 
 

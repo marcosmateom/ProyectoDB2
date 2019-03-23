@@ -42,7 +42,7 @@ public class modificarPoliza extends HttpServlet {
 		response.setContentType("text/html");
                 //String db_name = "SegurosGio", db_col_name = "Usuarios";
 		String tPoliza, nPoliza, cobertura;
-                tPoliza = request.getParameter("nPoliza").toString();
+                tPoliza = request.getParameter("tPoliza").toString();
 		nPoliza = request.getParameter("nPoliza").toString();
                 cobertura = request.getParameter("cobertura").toString();
 		/*try {*/
@@ -55,7 +55,7 @@ public class modificarPoliza extends HttpServlet {
                             BasicDBObject updateFields = new BasicDBObject();
                             updateFields.append("tipo_poliza", nPoliza);
                             updateFields.append("cobertura", cobertura);
-                            BasicDBObject searchQuery = new BasicDBObject().append("tipo_poliza", nPoliza);
+                            BasicDBObject searchQuery = new BasicDBObject().append("tipo_poliza", tPoliza);
 
                            //coll.replaceOne(searchQuery, updateFields);
                             
@@ -90,6 +90,8 @@ public class modificarPoliza extends HttpServlet {
 
     
 }
+
+
 
 
 
