@@ -5,21 +5,14 @@
  */
 package gio.co.seguros.Usuario;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.model.Projections;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import org.bson.Document;
-import org.codehaus.jettison.json.JSONArray;
 
 /**
  *
@@ -73,6 +66,7 @@ public class UsuarioResource {
     }
     
 }
+
 
 
 

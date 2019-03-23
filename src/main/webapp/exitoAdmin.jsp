@@ -21,10 +21,12 @@
         <br>
         <a href="tipoSeguro.jsp">administracion de tipo de polizas</a>
         <br>
-        <a href="mongoLista.jsp">lista</a>
+        <a href="listaUsuarios.jsp">Ver usuarios</a>
 
     </body>
 </html>
+
+
 
 
 

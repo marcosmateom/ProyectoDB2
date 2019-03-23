@@ -1,19 +1,18 @@
-<%-- 
-    Document   : index
-    Created on : Mar 3, 2019, 3:25:22 PM
-    Author     : migue
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-    <jsp:include page="partials/_head.jsp">
-        <jsp:param name="title" value="Portal de hospitales" />
-    </jsp:include>
-    <body>
-        <h1>Hello World!</h1>
-        <a href="login_h.jsp">Hospitales</a>
-        <a href="login_s1.jsp">Seguros</a>
-    </body>
+<head>
+<meta charset="ISO-8859-1">
+<title>Bienvenido a Gio Seguros</title>
+</head>
+<body>
+    <h1>Gio Seguros S.A</h1>
+    <form action="ValidateMongo" method="post">
+        <input type="text" name="user_id" placeholder="User ID"/><br>
+        <input type="password" name="password" placeholder="Password"/><br>
+        <input type="submit" value="Login"/>
+    </form>
+</body>
 </html>
 

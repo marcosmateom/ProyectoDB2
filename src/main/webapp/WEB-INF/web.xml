@@ -29,7 +29,11 @@
         <servlet-name>lista usuarios App</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
-  
+    
 </web-app>
+
+
+
+
 
 

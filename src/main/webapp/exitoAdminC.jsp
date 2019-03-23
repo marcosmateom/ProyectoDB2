@@ -17,9 +17,15 @@
         <br>
         <a href="modificarCliente0.jsp"> Modificar Cliente<a/> 
         <br>
-        <a href="eliminarCliente.jsp"> Eliminar Cliente<a/>    
+        <a href="eliminarCliente.jsp"> Eliminar Cliente<a/>
     </body>
 </html>
+
+
+
+
+
+
 
 
 
