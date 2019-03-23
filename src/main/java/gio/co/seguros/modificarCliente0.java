@@ -43,16 +43,19 @@ public class modificarCliente0 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
                 //String db_name = "SegurosGio", db_col_name = "Usuarios";
-		String  nombre, apellido, _id, tipo_poliza, telefono, email, documentoIdentificacion, contacto_emergencia, telefono_contacto_e;
-		_id = request.getParameter("poliza").toString();
+		String  nombre, apellido, identificacion, tipo_poliza, telefono, email, documentoIdentificacion, contacto_emergencia, telefono_contacto_e, _id;
+		identificacion = request.getParameter("poliza").toString();
 		/*try {*/
 			//MongoClient conn = gio.co.seguros.MongoConnectDB.connectMongo();
                         //MongoDatabase db = conn.getDatabase(db_name);
                         //MongoCollection<Document> coll = db.getCollection(db_col_name);
                         MongoCollection<Document> coll = gio.co.seguros.collClientes.collclientes();
                         try {
-                        Document document = coll.find(new BasicDBObject("_id", new ObjectId(_id))).projection(Projections.fields(Projections.include("nombre","apellido","telefono", "email", "documentoIdentificacion", "contacto_emergencia", "telefono_contacto_e", "tipo_poliza"), Projections.excludeId())).first();
+                        Document document = coll.find(new BasicDBObject("documentoIdentificacion", identificacion)).projection(Projections.fields(Projections.include("nombre","apellido","telefono", "email", "documentoIdentificacion", "contacto_emergencia", "telefono_contacto_e", "tipo_poliza"))).first();
                         
+                        //ObjectId id = document.getObjectId("_id");
+                        
+                        _id = document.getObjectId("_id").toString();
                         nombre = document.getString("nombre");
                         apellido = document.getString("apellido");
                         telefono = document.getString("telefono");
@@ -83,6 +86,21 @@ public class modificarCliente0 extends HttpServlet {
         
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

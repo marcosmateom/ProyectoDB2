@@ -1,27 +1,31 @@
 
+/* global BSON */
+
 $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/proyectoDB2/rest/cliente/getCliente/',
+                url: 'http://localhost:8080/proyectoDB2/restC/cliente/getCliente/',
                 dataType: 'json',
                 success: function(data) {
-                    var $cData = $('#dat');
+                    var $cData = $('#datosClientes');
                     $cData.empty();
                     //$uData.append(data[0].usuario);
-                    //$uData.append("holaa 1");
+                    //$cData.append("holaa 1");
                     for (var i = 0; i < data.length; i++) {
-                        //$pData.append("holaa 1");
-                        $cData.append("<tr><td>"+data[i].usuario+"</td>"+"<td>"+data[i].nombre+"</td>"+"<td>"+data[i].apellido+"</td>"+"<td>"+data[i].email+"</td>"+"<td>"+data[i].puesto+"</td><td><a href=\"modificarUsuario0.jsp?usuario="+data[i].usuario+"\" class=\"button pLink expanded\">Modificar</a><a href=\"eliminarUsuario.jsp?usuario="+data[i].usuario+"\" class=\"button pLink expanded\">Eliminar</a></td></tr>");
+                        //$cData.append(data[i]._id); Aqui me quede
+                        
+                        $cData.append("<tr><td>"+data[i].tipo_poliza+"</td><td>"+data[i].nombre+"</td><td>"+data[i].apellido+"</td><td>"+data[i].telefono+"</td><td>"+data[i].email+"</td><td>"+data[i].documentoIdentificacion+"</td><td>"+data[i].contacto_emergencia+"</td><td>"+data[i].telefono_contacto_e+"</td><td><a href=\"modificarCliente0.jsp?identificacion="+data[i].documentoIdentificacion+"\" class=\"button pLink expanded\">Modificar</a><a href=\"eliminarCliente.jsp?identificacion="+data[i].documentoIdentificacion+"\" class=\"button pLink expanded\">Eliminar</a></td></tr>");
                     }
                     if(data.length===0){
-                        $uData.append("<p>No hay datos disponibles</p>");
+                        $cData.append("<p>No hay datos disponibles</p>");
                     }
+                    
                 },
                 error : function() {
-                    var $uData = $('#dat');
-                    $uData.empty();
-                    $uData.append("<p>No hay datos disponibles</p>");
+                    var $cData = $('#datosClientes');
+                    $cData.empty();
+                    $cData.append("<p>No hay datos disponibles</p>");
                 }
             });
 });

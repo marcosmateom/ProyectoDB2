@@ -55,7 +55,7 @@ public class eliminarPoliza extends HttpServlet {
                             coll.deleteOne(document);
                             //coll.deleteOne(new Document("_id", new ObjectId(poliza)));
                         
-                        response.sendRedirect(String.format("exitoAdmin.jsp"));
+                        response.sendRedirect(String.format("administracionPolizas.jsp"));
                         
                         
                         } catch(MongoException | ClassCastException e){
@@ -64,6 +64,7 @@ public class eliminarPoliza extends HttpServlet {
 	}
     
 }
+
 
 
 

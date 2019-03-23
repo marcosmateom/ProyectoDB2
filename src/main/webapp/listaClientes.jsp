@@ -21,23 +21,33 @@
         <table>
             <thead>
                 <tr>
-                    
-                    <th>Usuario</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
+                    <th>tipo de poliza</th>
+                    <th>nombre</th>
+                    <th>apellido</th>
+                    <th>telefono</th>
                     <th>Correo</th>
-                    <th>Puesto</th>
-                    <th>Accion</th>
+                    <th>Documento de identificacion</th>
+                    <th>Contacto de emergencia</th>
+                    <th>Telefono del contacto de emergencia</th>
+                    <th>Acciones</th>
                     
                 </tr>
             </thead>
-            <tbody id="dat">
+            <tbody id="datosClientes">
             </tbody>
         </table>
         
     </body>
-    <script src="js/Usuarios.js"></script>
+    <script src="js/Clientes.js"></script>
 </html>
+
+
+
+
+
+
+
+
 
 
 

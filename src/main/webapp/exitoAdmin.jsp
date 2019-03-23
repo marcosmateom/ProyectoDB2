@@ -8,23 +8,22 @@
 
 <html>
     <jsp:include page="partials/_head.jsp">
-        <jsp:param name="title" value="Exito alta admin!" />
+        <jsp:param name="title" value="Alta Administracion" />
     </jsp:include>
     <%@ include file="partials/_headerLogged.jsp"%>
     <body>
         <h1>Exito alta admin!</h1>
-        <a href="nuevoUsuario.jsp">Nuevo usuario</a>
+
+        <a href="administracionUsuarios.jsp"class="button">Administracion de usuarios</a>
         <br>
-        <a href="modificarUsuario0.jsp">Modificar Usuario</a>
+        <a href="administracionPolizas.jsp" class="button">Administracion de polizas</a>
         <br>
-        <a href="eliminarUsuario.jsp">Eliminar Usuario</a>
-        <br>
-        <a href="tipoSeguro.jsp">administracion de tipo de polizas</a>
-        <br>
-        <a href="listaUsuarios.jsp" class="button">Ver usuarios</a>
+        
 
     </body>
 </html>
+
+
 
 
 

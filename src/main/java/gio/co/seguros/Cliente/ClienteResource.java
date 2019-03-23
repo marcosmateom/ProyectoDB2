@@ -43,6 +43,8 @@ public class ClienteResource {
                 MongoCollection<Document> coll = gio.co.seguros.collClientes.collclientes();
                 List<Document> clientes = (List<Document>) coll.find().into( new ArrayList<Document>());
                 clientsList = clientes;
+                //String a = clientes.get(0).toJson();
+                //String a2 = a;
 
                 
             }catch(Exception e){
@@ -51,6 +53,9 @@ public class ClienteResource {
     }
     
 }
+
+
+
 
 
 

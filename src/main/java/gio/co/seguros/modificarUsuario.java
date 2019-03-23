@@ -75,7 +75,7 @@ public class modificarUsuario extends HttpServlet {
                            coll.updateMany(searchQuery, setQuery);
                             //coll.upda
                                                         
-                            RequestDispatcher rd = request.getRequestDispatcher("exitoAdmin.jsp");
+                            RequestDispatcher rd = request.getRequestDispatcher("administracionUsuarios.jsp");
                             rd.forward(request, response);
                         //puesto = "Admin";
                         } catch(MongoException | ClassCastException e){
@@ -101,6 +101,7 @@ public class modificarUsuario extends HttpServlet {
 
     
 }
+
 
 
 
