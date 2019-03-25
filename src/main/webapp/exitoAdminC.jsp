@@ -13,13 +13,24 @@
     <%@ include file="partials/_headerLogged.jsp"%>
     <body>
         <h1>Exito Administracion de clientes!</h1>
-        <a href="clienteNuevo.jsp"> Registrar Cliente<a/>
+        <a href="listaClientes.jsp" class="button"> Ver Cliente<a/>
         <br>
-        <a href="modificarCliente0.jsp"> Modificar Cliente<a/> 
+        <a href="clienteNuevo.jsp" class="button"> Registrar Cliente<a/>
         <br>
-        <a href="eliminarCliente.jsp"> Eliminar Cliente<a/>    
+        <a href="modificarCliente0.jsp" class="button"> Modificar Cliente<a/> 
+        <br>
+        <a href="eliminarCliente.jsp" class="button"> Eliminar Cliente<a/>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 

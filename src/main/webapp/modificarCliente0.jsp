@@ -6,6 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    String identificacion = request.getParameter("identificacion");
+    if(identificacion==null)
+    {
+        identificacion="";
+    }
+//= request.getParameter("usuario") 
+%>
 <html>
     <jsp:include page="partials/_head.jsp">
         <jsp:param name="title" value="Cliente a Modificar" />
@@ -14,9 +22,9 @@
         <div class="grid-container">
             <div class="grid-x grid-margin-x align-center">
                 <form class="cell small-12 medium-8" action="modificarCliente0" method="post">
-                    <h4 class="text-center">Ingrese la poliza del cliente a modificar</h4>
-                    Poliza:<br>
-                    <input type="text" name="poliza" value="" placeholder="Ingrese la poliza del cliente">
+                    <h4 class="text-center">Ingrese el numero de identificacion del cliente</h4>
+                    Numero de identificacion<br>
+                    <input type="text" name="poliza" value="<%= identificacion %>" placeholder="Ingrese la poliza del cliente">
                     <br>
                     <input class="button small-12 cell" type="submit" name="submit" value="Modificar Clliente" />
                 </form>
@@ -24,3 +32,7 @@
         </div>
     </body>
 </html>
+
+
+
+

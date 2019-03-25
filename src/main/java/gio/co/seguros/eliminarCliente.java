@@ -51,7 +51,7 @@ public class eliminarCliente extends HttpServlet {
                         MongoCollection<Document> coll = gio.co.seguros.collClientes.collclientes();
                         try {
                             BasicDBObject document = new BasicDBObject();
-                            document.put("_id", new ObjectId(poliza));
+                            document.put("documentoIdentificacion", poliza);
                             coll.deleteOne(document);
                             //coll.deleteOne(new Document("_id", new ObjectId(poliza)));
                         
@@ -64,6 +64,8 @@ public class eliminarCliente extends HttpServlet {
 	}
     
 }
+
+
 
 
 

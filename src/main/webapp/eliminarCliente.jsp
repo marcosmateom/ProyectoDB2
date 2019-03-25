@@ -6,6 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    String identificacion = request.getParameter("identificacion");
+    if(identificacion==null)
+    {
+        identificacion="";
+    }
+//= request.getParameter("usuario") 
+%>
 <html>
     <jsp:include page="partials/_head.jsp">
         <jsp:param name="title" value="Eliminar Cliente" />
@@ -15,9 +23,9 @@
         <div class="grid-container">
             <div class="grid-x grid-margin-x align-center">
                 <form class="cell small-12 medium-8" action="eliminarCliente" method="post">
-                    <h4 class="text-center">Ingrese la poliza del cliente a eliminar</h4>
-                    poliza:<br>
-                    <input type="text" name="poliza" value="" placeholder="Ingrese el numero de poliza del cliente">
+                    <h4 class="text-center">Ingrese el numero de identificacion del cliente a eliminar</h4>
+                    Numero de identificacion:<br>
+                    <input type="text" name="poliza" value="<%= identificacion %>" placeholder="Ingrese el numero de identificacion del cliente">
                     <br>
                     <input class="button small-12 cell" type="submit" name="submit" value="Eliminar Cliente" />
                 </form>
@@ -25,3 +33,10 @@
         </div>
     </body>
 </html>
+
+
+
+
+
+
+

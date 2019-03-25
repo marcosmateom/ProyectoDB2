@@ -11,16 +11,21 @@ import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Projections;
+import com.mongodb.util.JSON;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.bson.Document;
+import org.bson.types.ObjectId;
+import org.codehaus.jettison.json.JSONArray;
+
 
 @WebServlet("/mongoLista")
 
@@ -52,8 +57,17 @@ public class mongoLista extends HttpServlet {
                         MongoDatabase db = conn.getDatabase(db_name);
                         MongoCollection<Document> coll = db.getCollection(db_col_name);
                         try {
-                            List<Document> employees = (List<Document>) coll.find().into(
-				new ArrayList<Document>());
+                            //Document document = coll.find().projection(Projections.fields(Projections.include("nombre","apellido","telefono", "email", "documentoIdentificacion", "contacto_emergencia", "telefono_contacto_e", "tipo_poliza"), Projections.excludeId())).first();
+                            //ArrayList<Document> pp;
+                            
+                            List<Document> clientes = (List<Document>) coll.find().into( new ArrayList<Document>());
+                            //Document document = coll.find().projection(Projections.fields(Projections.include("nombre","apellido","telefono", "email", "documentoIdentificacion", "contacto_emergencia", "telefono_contacto_e", "tipo_poliza"), Projections.excludeId())).first();
+                            //String migue = document.toJson();
+                            //JSON listado = com.mongodb.util.JSON.serialize(clientes);
+                            //List<JSON> listado = com.mongodb.util.JSON.serialize(clientes);
+                            request.setAttribute("clientes", clientes);
+                            RequestDispatcher rd = request.getRequestDispatcher("p.jsp");
+                            rd.forward(request, response);
                             
                         
                         } catch(MongoException | ClassCastException e){
@@ -62,5 +76,12 @@ public class mongoLista extends HttpServlet {
 	}
     
 }
+
+
+
+
+
+
+
 
 

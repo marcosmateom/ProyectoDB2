@@ -17,16 +17,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
-@WebServlet("/modificarPoliza")
+@WebServlet("/modificarCliente")
 
 /**
  *
  * @author C.V
  */
-public class modificarPoliza extends HttpServlet {
-    
-    public modificarPoliza() {
+public class modificarCliente extends HttpServlet {
+  
+    public modificarCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,21 +42,33 @@ public class modificarPoliza extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
                 //String db_name = "SegurosGio", db_col_name = "Usuarios";
-		String tPoliza, nPoliza, cobertura;
-                tPoliza = request.getParameter("tPoliza").toString();
-		nPoliza = request.getParameter("nPoliza").toString();
-                cobertura = request.getParameter("cobertura").toString();
+		String  nombre, apellido, _id, tipo_poliza, telefono, email, documentoIdentificacion, contacto_emergencia, telefono_contacto_e;
+		_id = request.getParameter("id").toString();
+                nombre = request.getParameter("nombre").toString();
+                apellido = request.getParameter("apellido").toString();
+		tipo_poliza = request.getParameter("tPoliza").toString();
+                telefono = request.getParameter("telefono").toString();
+                email = request.getParameter("email").toString();
+                documentoIdentificacion = request.getParameter("doc").toString();
+                contacto_emergencia = request.getParameter("contactoE").toString();
+                telefono_contacto_e = request.getParameter("telEm").toString();
 		/*try {*/
 			//MongoClient conn = gio.co.seguros.MongoConnectDB.connectMongo();
                         //MongoDatabase db = conn.getDatabase(db_name);
                         //MongoCollection<Document> coll = db.getCollection(db_col_name);
-                        MongoCollection<Document> coll = gio.co.seguros.collPoliza.collpoliza();
+                        MongoCollection<Document> coll = gio.co.seguros.collClientes.collclientes();
                         try {
                         
                             BasicDBObject updateFields = new BasicDBObject();
-                            updateFields.append("tipo_poliza", nPoliza);
-                            updateFields.append("cobertura", cobertura);
-                            BasicDBObject searchQuery = new BasicDBObject().append("tipo_poliza", tPoliza);
+                            updateFields.append("nombre", nombre);
+                            updateFields.append("apellido", apellido);
+                            updateFields.append("email", email);
+                            updateFields.append("telefono", telefono);
+                            updateFields.append("tipo_poliza", tipo_poliza);
+                            updateFields.append("documentoIdentificacion", documentoIdentificacion);
+                            updateFields.append("contacto_emergencia", contacto_emergencia);
+                            updateFields.append("telefono_contacto_e", telefono_contacto_e);
+                            BasicDBObject searchQuery = new BasicDBObject().append("_id",  new ObjectId(_id));
 
                            //coll.replaceOne(searchQuery, updateFields);
                             
@@ -64,7 +77,7 @@ public class modificarPoliza extends HttpServlet {
                            coll.updateMany(searchQuery, setQuery);
                             //coll.upda
                                                         
-                            RequestDispatcher rd = request.getRequestDispatcher("administracionPolizas.jsp");
+                            RequestDispatcher rd = request.getRequestDispatcher("exitoAdminC.jsp");
                             rd.forward(request, response);
                         //puesto = "Admin";
                         } catch(MongoException | ClassCastException e){
@@ -90,6 +103,7 @@ public class modificarPoliza extends HttpServlet {
 
     
 }
+
 
 
 

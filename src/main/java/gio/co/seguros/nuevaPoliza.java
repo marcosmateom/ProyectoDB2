@@ -60,7 +60,7 @@ public class nuevaPoliza extends HttpServlet {
                         Document doc = new Document("tipo_poliza", nombrePoliza)
                             .append("cobertura", coberturaPoliza);
                         coll.insertOne(doc);
-                        RequestDispatcher rd = request.getRequestDispatcher("exitoAdmin.jsp");
+                        RequestDispatcher rd = request.getRequestDispatcher("administracionPolizas.jsp");
                         rd.forward(request, response);
                         //puesto = "Admin";
                         } catch(MongoException | ClassCastException e){
@@ -86,6 +86,7 @@ public class nuevaPoliza extends HttpServlet {
 
     
 }
+
 
 
 
