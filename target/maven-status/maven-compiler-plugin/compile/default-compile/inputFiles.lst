@@ -6,12 +6,14 @@ C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\GetUsuario.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\nuevoUsuario.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\Validate.java
+C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\updateUser_h.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\Cliente\ClienteResource.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\MongoConnectDB.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\collPoliza.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\eliminarCliente.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\nuevaPoliza.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\Usuario\Usuarios.java
+C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\crudUser.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\mongoLista.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\JavaConnectDb.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\Usuario\UsuarioResource.java
@@ -19,9 +21,11 @@ C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\modificarUsuario0.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\Poliza\PolizaResource.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\ValidateMongo.java
+C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\GetPatient.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\nuevoCliente.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\collClientes.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\GetHistorial.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\Logout.java
+C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\deleteUser_h.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\eliminarPoliza.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\modificarCliente.java
