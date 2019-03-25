@@ -22,7 +22,7 @@
         <div class="grid-container">
             <div class="grid-x grid-margin-x align-center">
                 <form class="cell small-12 medium-8" action="modificarCliente0" method="post">
-                    <h4 class="text-center">Ingrese la poliza del cliente a modificar</h4>
+                    <h4 class="text-center">Ingrese el numero de identificacion del cliente</h4>
                     Numero de identificacion<br>
                     <input type="text" name="poliza" value="<%= identificacion %>" placeholder="Ingrese la poliza del cliente">
                     <br>
@@ -32,6 +32,7 @@
         </div>
     </body>
 </html>
+
 
 
 
