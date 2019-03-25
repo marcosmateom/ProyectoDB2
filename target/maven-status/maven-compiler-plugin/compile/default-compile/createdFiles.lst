@@ -10,11 +10,6 @@ gio\co\hospitales\GetPatient.class
 gio\co\hospitales\Validate.class
 gio\co\seguros\modificarUsuario.class
 gio\co\hospitales\GetHistorial.class
-<<<<<<< HEAD
-gio\co\seguros\nuevaPoliza.class
-gio\co\seguros\collPoliza.class
-gio\co\seguros\collClientes.class
-=======
 gio\co\seguros\Cliente\ClienteResource.class
 gio\co\seguros\nuevaPoliza.class
 gio\co\seguros\collPoliza.class
@@ -23,7 +18,6 @@ gio\co\seguros\Poliza\PolizaResource.class
 gio\co\seguros\Usuario\Usuarios.class
 gio\co\seguros\collClientes.class
 gio\co\seguros\Usuario\UsuarioResource.class
->>>>>>> mateo
 gio\co\hospitales\JavaConnectDb.class
 gio\co\seguros\nuevoCliente.class
 gio\co\seguros\eliminarCliente.class

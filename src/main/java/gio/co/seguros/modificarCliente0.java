@@ -51,13 +51,6 @@ public class modificarCliente0 extends HttpServlet {
                         //MongoCollection<Document> coll = db.getCollection(db_col_name);
                         MongoCollection<Document> coll = gio.co.seguros.collClientes.collclientes();
                         try {
-<<<<<<< HEAD
-                        //Document document = coll.find(new BasicDBObject("_id", new ObjectId(_id))).projection(Projections.fields(Projections.include("tipo_poliza", "nombre","apellido","telefono","email","documentoIdentificacion", "contacto_emergencia", "Telefono-contacto_e"), Projections.excludeId())).first();
-                        Document document = coll.find(new BasicDBObject("_id", "5c85f5dcb78debd92fede7ba")).projection(Projections.fields(Projections.include("tipo_poliza", "nombre","apellido","telefono","email","documentoIdentificacion", "contacto_emergencia", "Telefono-contacto_e"), Projections.excludeId())).first();
-                        tipo_poliza = document.getString("nombre");
-                        //nombre = document.getString("nombre");
-                        /*apellido = document.getString("apellido");
-=======
                         Document document = coll.find(new BasicDBObject("documentoIdentificacion", identificacion)).projection(Projections.fields(Projections.include("nombre","apellido","telefono", "email", "documentoIdentificacion", "contacto_emergencia", "telefono_contacto_e", "tipo_poliza"))).first();
                         
                         //ObjectId id = document.getObjectId("_id");
@@ -65,27 +58,12 @@ public class modificarCliente0 extends HttpServlet {
                         _id = document.getObjectId("_id").toString();
                         nombre = document.getString("nombre");
                         apellido = document.getString("apellido");
->>>>>>> mateo
                         telefono = document.getString("telefono");
                         tipo_poliza= document.getString("tipo_poliza");
                         email = document.getString("email");
-<<<<<<< HEAD
-                        dpi = document.getString("documentoIdentificacion");
-                        contE = document.getString("contacto_emergencia");
-                        telContE = document.getString("telefono_contacto_e");*/
-                        tipo_poliza ="76";
-                        nombre = "a";
-                        apellido ="b";
-                        telefono ="123";
-                        email ="@@";
-                        dpi ="987";
-                        contE ="pepe";
-                        telContE="5647";
-=======
                         documentoIdentificacion = document.getString("documentoIdentificacion"); 
                         contacto_emergencia = document.getString("contacto_emergencia");
                         telefono_contacto_e = document.getString("telefono_contacto_e");
->>>>>>> mateo
                         
 
                         
@@ -127,10 +105,7 @@ public class modificarCliente0 extends HttpServlet {
 
 
 
-<<<<<<< HEAD
-=======
 
 
 
 
->>>>>>> mateo
