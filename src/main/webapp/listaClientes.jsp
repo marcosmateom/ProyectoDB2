@@ -16,7 +16,7 @@
     <!--navbar logged-->
 
     <body>
-        <h1>Hello World!</h1>
+        <h1>Listado de Clientes</h1>
         
         <table>
             <thead>
@@ -40,6 +40,7 @@
     </body>
     <script src="js/Clientes.js"></script>
 </html>
+
 
 
 

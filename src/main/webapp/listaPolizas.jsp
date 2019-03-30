@@ -16,7 +16,7 @@
     <!--navbar logged-->
 
     <body>
-        <h1>Hello World!</h1>
+        <h1>Listado de Polizas</h1>
         
         <table>
             <thead>
@@ -34,6 +34,7 @@
     </body>
     <script src="js/Polizas.js"></script>
 </html>
+
 
 
 

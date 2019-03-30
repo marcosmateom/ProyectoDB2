@@ -21,12 +21,13 @@
                 <input type="text" name="nPoliza" value="<%= request.getParameter("nPoliza") %>" placeholder="ej. premium">
                 <br> cobertura%:<br>
                 <input type="text" name="cobertura" value="<%= request.getParameter("coberturaS") %>%" placeholder="ej. 20%">
-                <input class="button small-12 cell" type="submit" name="submit" value="Crear Usuario" />
+                <input class="button small-12 cell" type="submit" name="submit" value="Modificar Poliza" />
             </form>
         </div>
     </div>
     </body>
 </html>
+
 
 
 
