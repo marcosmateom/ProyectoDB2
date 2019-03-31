@@ -11,47 +11,29 @@
 <!DOCTYPE html>
 <html>
     <jsp:include page="partials/_head.jsp">
-        <jsp:param name="title" value="Agregar Paciente" />
+        <jsp:param name="title" value="Citas con seguros" />
     </jsp:include>
     <!--navbar logged-->
 
     <body>
-        <h1>Listado de Polizas</h1>
+        <h1>Listado de citas cubiertas por la aseguradora</h1>
         
         <table>
             <thead>
                 <tr>
                     
-                    <th>Nombre Poliza</th>
-                    <th>Cobertura</th>
+                    <th>No. de Cita</th>
+                    <th>Servicio</th>
+                    <th>Costo</th>
+                    <th>% de cobertura</th>
+                    <th>Tipo de seguro</th>
                     
                 </tr>
             </thead>
-            <tbody id="datosP">
+            <tbody id="datosS">
             </tbody>
         </table>
         
     </body>
-    <script src="js/Polizas.js"></script>
+    <script src="js/aseguradosH.js"></script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
