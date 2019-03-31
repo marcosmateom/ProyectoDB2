@@ -86,26 +86,3 @@ public class modificarCliente0 extends HttpServlet {
         
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

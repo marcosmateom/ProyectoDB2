@@ -59,15 +59,15 @@ public class Validate extends HttpServlet {
 			if(rs.next()) {
                             //Agregar el nombre del usuario
                             Cookie cookieUsername = new Cookie("user",user);
-                            cookieUsername.setMaxAge(5*60);
+                            cookieUsername.setMaxAge(5*6000);
                             response.addCookie(cookieUsername);
                             //Agregar su rol
                             Cookie cookieRol = new Cookie("rol",rs.getString(5));
-                            cookieRol.setMaxAge(5*60);
+                            cookieRol.setMaxAge(5*6000);
                             response.addCookie(cookieRol);
                             //Agregar el # de hospital
                             Cookie cookieHospNum = new Cookie("hospNum",hospnum);
-                            cookieHospNum.setMaxAge(5*60);
+                            cookieHospNum.setMaxAge(5*6000);
                             response.addCookie(cookieHospNum);
                             //Redireccionar
                             response.sendRedirect("home_h.jsp");
@@ -75,14 +75,13 @@ public class Validate extends HttpServlet {
                             //RequestDispatcher rd = request.getRequestDispatcher("home_h.jsp");
                             //rd.forward(request, response);
 			}else {
-                            response.sendRedirect("index.jsp");
+                            response.sendRedirect("login_h.jsp?log=0");
 			}
 		} catch (SQLException e) {
-			response.sendRedirect("index.jsp?val=0");
+			response.sendRedirect("login_h.jsp");
 		}
 	}
 
 }
-
 
 
