@@ -17,7 +17,7 @@
     <%@ include file="partials/_getInfo.jsp"%>
     <%
         if(!rol.equals("1")){
-            response.sendRedirect("home_h.jsp");
+            response.sendRedirect("index.jsp");
         }
     %>
     <body>
