@@ -55,7 +55,7 @@ public class eliminarUsuario extends HttpServlet {
                             document.put("usuario", usuariow);
                             coll.deleteOne(document);
                         
-                        response.sendRedirect(String.format("exitoAdmin.jsp"));
+                        response.sendRedirect(String.format("administracionUsuarios.jsp"));
                         
                         
                         } catch(MongoException | ClassCastException e){
@@ -64,6 +64,7 @@ public class eliminarUsuario extends HttpServlet {
 	}
     
 }
+
 
 
 

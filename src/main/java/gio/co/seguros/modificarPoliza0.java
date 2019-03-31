@@ -52,6 +52,7 @@ public class modificarPoliza0 extends HttpServlet {
                         try {
                         Document document = coll.find(new BasicDBObject("tipo_poliza", nPoliza)).projection(Projections.fields(Projections.include("tipo_poliza","cobertura"), Projections.excludeId())).first();
                         coberturaS = document.getString("cobertura");
+                        coberturaS = coberturaS.substring(0, coberturaS.length()-1);
                         response.sendRedirect(String.format("modificarPoliza.jsp?nPoliza=%s&coberturaS=%s", nPoliza, coberturaS));
                         //response.sendRedirect(String.format("modificarPoliza.jsp?coberturaS=%s",coberturaS));
                         
@@ -71,6 +72,7 @@ public class modificarPoliza0 extends HttpServlet {
 	}
     
 }
+
 
 
 

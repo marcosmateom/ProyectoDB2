@@ -21,6 +21,7 @@
             <version>3.5.0</version>
             <type>jar</type>
         </dependency>
+
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -40,6 +41,37 @@
             <version>2.4</version>
             <classifier>jdk15</classifier>
         </dependency>
+        
+        <dependency>
+            <groupId>org.glassfish.jersey.bundles</groupId>
+            <artifactId>jaxrs-ri</artifactId>
+            <version>2.28</version>
+        </dependency>
+        <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-server</artifactId>
+                <version>1.19.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-servlet</artifactId>
+            <version>1.19</version>
+        </dependency>
+        
+        <!-- this is only required, if you are uploading file using JAX-RS by Jersey -->
+        <dependency>
+                <groupId>com.sun.jersey.contribs</groupId>
+                <artifactId>jersey-multipart</artifactId>
+                <version>1.19.4</version>
+        </dependency>
+        <!--  if using json then use this dependency , else not required this JSON dependency -->
+        <dependency>
+                <groupId>com.sun.jersey</groupId>
+                <artifactId>jersey-json</artifactId>
+                <version>1.19.4</version>
+        </dependency>
+        
+        
     </dependencies>
 
     <build>
@@ -93,4 +125,8 @@
     </build>
 
 </project>
+
+
+
+
 

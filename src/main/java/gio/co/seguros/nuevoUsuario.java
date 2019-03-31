@@ -71,7 +71,7 @@ public class nuevoUsuario extends HttpServlet {
                             .append("email", email)
                             .append("puesto", puesto);
                         coll.insertOne(doc);
-                        RequestDispatcher rd = request.getRequestDispatcher("exitoAdmin.jsp");
+                        RequestDispatcher rd = request.getRequestDispatcher("administracionUsuarios.jsp");
                         rd.forward(request, response);
                         //puesto = "Admin";
                         } catch(MongoException | ClassCastException e){
@@ -98,6 +98,8 @@ public class nuevoUsuario extends HttpServlet {
     
     
 }
+
+
 
 
 

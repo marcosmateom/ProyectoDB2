@@ -6,6 +6,13 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    String usuario = request.getParameter("usuario");
+    if(usuario==null)
+    {
+        usuario="";
+    }
+//= request.getParameter("usuario") %>
 <html>
     
     <jsp:include page="partials/_head.jsp">
@@ -19,7 +26,7 @@
                 <form class="cell small-12 medium-8" action="eliminarUsuario" method="post">
                     <h4 class="text-center">Ingrese el usuario a eliminar</h4>
                     Usuario:<br>
-                    <input type="text" name="usuariow" value="" placeholder="Ingrese el nombre de usuario ej. mige97">
+                    <input type="text" name="usuariow" value="<%= usuario %>" placeholder="Ingrese el nombre de usuario ej. mige97">
                     <br>
                     <input class="button small-12 cell" type="submit" name="submit" value="Eliminar Usuario" />
                 </form>
@@ -28,4 +35,5 @@
         
     </body>
 </html>
+
 

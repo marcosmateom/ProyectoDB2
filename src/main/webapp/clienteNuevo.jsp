@@ -17,8 +17,7 @@
                 <form class="cell small-12 medium-8" action="nuevoCliente" method="post">
                     <h4 class="text-center">Ingrese los datos del nuevo paciente</h4>
                     Tipo de Poliza:<br>
-                    <select name="tPoliza">
-                        <option value="normal">Normal</option><option value="premium">premium</option>
+                    <select name="tPoliza" id="tipoP">
                     </select>
                     <br>
                     <br> Nombre del Cliente:<br>
@@ -41,4 +40,6 @@
             </div>
         </div>
     </body>
+    <script src="js/ClienteN.js"></script>
 </html>
+
