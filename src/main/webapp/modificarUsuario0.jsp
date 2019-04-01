@@ -17,8 +17,9 @@
 %>
 <html>
     <jsp:include page="partials/_head.jsp">
-        <jsp:param name="title" value="Usuario a Modificar" />
+        <jsp:param name="title" value="Elegir usuario a modificar" />
     </jsp:include>
+    <%@ include file="partials/_headerLogged.jsp"%>
     <body>
         <div class="grid-container">
             <div class="grid-x grid-margin-x align-center">
@@ -34,6 +35,7 @@
         
     </body>
 </html>
+
 
 
 

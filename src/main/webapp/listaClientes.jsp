@@ -11,8 +11,9 @@
 <!DOCTYPE html>
 <html>
     <jsp:include page="partials/_head.jsp">
-        <jsp:param name="title" value="Agregar Paciente" />
+        <jsp:param name="title" value="Lista CLientes" />
     </jsp:include>
+    <%@ include file="partials/_headerLogged.jsp"%>
     <!--navbar logged-->
 
     <body>
@@ -40,6 +41,7 @@
     </body>
     <script src="js/Clientes.js"></script>
 </html>
+
 
 
 

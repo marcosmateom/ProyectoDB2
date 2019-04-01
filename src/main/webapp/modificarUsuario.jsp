@@ -8,8 +8,9 @@
 <!DOCTYPE html>
 <html>
     <jsp:include page="partials/_head.jsp">
-        <jsp:param name="title" value="Modificaar Usuario" />
+        <jsp:param name="title" value="Modificar Usuario" />
     </jsp:include>
+    <%@ include file="partials/_headerLogged.jsp"%>
     <body>
         
         <div class="grid-container">
@@ -40,6 +41,7 @@
 
     </body>
 </html>
+
 
 
 

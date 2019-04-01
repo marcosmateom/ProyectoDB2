@@ -10,6 +10,7 @@
      <jsp:include page="partials/_head.jsp">
         <jsp:param name="title" value="administracion de Polizas" />
     </jsp:include>
+    <%@ include file="partials/_headerLogged.jsp"%>
     <body>
         <h1>Administracion de Polizas</h1>
         <a href="listaPolizas.jsp" class="button">Ver Polizas</a>
@@ -23,6 +24,7 @@
         <a href="exitoAdmin.jsp"class="button">Menu Alta Administracion</a>
     </body>
 </html>
+
 
 
 

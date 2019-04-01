@@ -11,8 +11,9 @@
 <!DOCTYPE html>
 <html>
     <jsp:include page="partials/_head.jsp">
-        <jsp:param name="title" value="Citas con seguros" />
+        <jsp:param name="title" value="Alta Administracion" />
     </jsp:include>
+    <%@ include file="partials/_headerLogged.jsp"%>
     <!--navbar logged-->
 
     <body>
@@ -37,3 +38,4 @@
     </body>
     <script src="js/aseguradosH.js"></script>
 </html>
+

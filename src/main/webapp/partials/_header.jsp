@@ -16,9 +16,10 @@
         <div class="top-bar-right">
             <ul class="dropdown menu" data-dropdown-menu>
                 <ul class="dropdown menu" data-accordion-menu>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="index.jsp">Inicio</a></li>
                 </ul>
             </ul>
         </div>
     </div>
 </header>
+

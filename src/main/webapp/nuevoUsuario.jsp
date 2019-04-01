@@ -10,6 +10,7 @@
     <jsp:include page="partials/_head.jsp">
         <jsp:param name="title" value="Nuevo Usuario" />
     </jsp:include>
+    <%@ include file="partials/_headerLogged.jsp"%>
     <body>
         <div class="grid-container">
         <div class="grid-x grid-margin-x align-center">
@@ -39,6 +40,7 @@
     
     
 </html>
+
 
 
 

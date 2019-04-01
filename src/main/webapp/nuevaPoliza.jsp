@@ -7,9 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-     <jsp:include page="partials/_head.jsp">
-        <jsp:param name="title" value="Nueva Poliza" />
+    <jsp:include page="partials/_head.jsp">
+        <jsp:param name="title" value="Nueva poliza" />
     </jsp:include>
+    <%@ include file="partials/_headerLogged.jsp"%>
     <body>
         <div class="grid-container">
             <div class="grid-x grid-margin-x align-center">
@@ -26,3 +27,4 @@
         </div>
     </body>
 </html>
+

@@ -11,6 +11,7 @@
     <jsp:include page="partials/_head.jsp">
         <jsp:param name="title" value="Modificar Poliza" />
     </jsp:include>
+    <%@ include file="partials/_headerLogged.jsp"%>
     <body>
         <div class="grid-container">
         <div class="grid-x grid-margin-x align-center">
@@ -27,6 +28,7 @@
     </div>
     </body>
 </html>
+
 
 
 
