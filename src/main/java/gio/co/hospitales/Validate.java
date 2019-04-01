@@ -70,15 +70,15 @@ public class Validate extends HttpServlet {
                             cookieHospNum.setMaxAge(5*6000);
                             response.addCookie(cookieHospNum);
                             //Redireccionar
-                            response.sendRedirect("home_h.jsp");
+                            response.sendRedirect("index.jsp");
                             conn.close();
-                            //RequestDispatcher rd = request.getRequestDispatcher("home_h.jsp");
+                            //RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                             //rd.forward(request, response);
 			}else {
-                            response.sendRedirect("login_h.jsp?log=0");
+                            response.sendRedirect("index.jsp?log=0");
 			}
 		} catch (SQLException e) {
-			response.sendRedirect("login_h.jsp");
+			response.sendRedirect("index.jsp");
 		}
 	}
 

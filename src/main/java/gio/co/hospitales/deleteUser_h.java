@@ -93,9 +93,9 @@ public class deleteUser_h extends HttpServlet {
                             cookieHospNum.setMaxAge(5*6000);
                             response.addCookie(cookieHospNum);
                             //Redireccionar
-                            response.sendRedirect("home_h.jsp");
+                            response.sendRedirect("index.jsp");
                             conn.close();
-                            //RequestDispatcher rd = request.getRequestDispatcher("home_h.jsp");
+                            //RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
                             //rd.forward(request, response);
 			}else {
                             response.sendRedirect("index.jsp");
