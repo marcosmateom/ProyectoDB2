@@ -45,9 +45,9 @@ public class GetCliente extends HttpServlet {
             String parClienteId = request.getParameter("dpi");
             if ((parClienteId != null) && !(parClienteId.equals(""))) {
                 int cId = Integer.parseInt(request.getParameter("dpi"));
-                url = "http://localhost:8080/proyectoDB2/restC/cliente/getCliente?dpi=" + cId;
+                url = "http://localhost:8080/proyectoDB2-Hospitales/restC/cliente/getCliente?dpi=" + cId;
             } else {
-                url = "http://localhost:8080/proyectoDB2/restC/cliente/getCliente/";
+                url = "http://localhost:8080/proyectoDB2-Hospitales/restC/cliente/getCliente/";
             }
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();

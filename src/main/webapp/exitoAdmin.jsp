@@ -12,14 +12,21 @@
     </jsp:include>
     <%@ include file="partials/_headerLogged.jsp"%>
     <body>
-        <h1>Exito alta admin!</h1>
-
-        <a href="administracionUsuarios.jsp"class="button">Administracion de usuarios</a>
-        <br>
-        <a href="administracionPolizas.jsp" class="button">Administracion de polizas</a>
-        <br>
-        <a href="http://localhost:8080/proyectoDB2/aseguradosHospital.jsp" class="button">Coberturas pagadas</a>
-        <br>
+        <div class="grid-container">
+            <div class="grid-x align-center">
+                <div class="cell small-10 medium-12">
+                    <h1>Exito alta admin!</h1>
+                    <a href="administracionUsuarios.jsp"class="button">Administracion de usuarios</a>
+                    <br>
+                    <a href="administracionPolizas.jsp" class="button">Administracion de polizas</a>
+                    <br>
+                    <a href="aseguradosHospital.jsp" class="button">Coberturas pagadas</a>
+                    <br>
+                    <a class="button" href="citas_h.jsp">Ver Citas</a>
+                    <br>
+                </div>
+            </div>
+        </div>
 
     </body>
 </html>

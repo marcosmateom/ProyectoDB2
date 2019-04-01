@@ -2,7 +2,7 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/proyectoDB2-Hospitales/restCo/cobertura/getCobertura',
+                url: 'http://localhost:8080/proyectoDB2/restCo/cobertura/getCobertura',
                 dataType: 'json',
                 success: function(data) {
                     var $pData = $('#datosS');

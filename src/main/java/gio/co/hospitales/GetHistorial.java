@@ -18,7 +18,7 @@ import oracle.jdbc.OracleResultSet;
 @WebServlet("/GetHistorial")
 public class GetHistorial extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-        private static String hospitalNum = null;
+        private static String hospitalNum = "1";
        
     /**
      * @see HttpServlet#HttpServlet()
