@@ -9,16 +9,14 @@ db.usuarios.insert({
 
 
 db.pacientes.insert({
-    tipo_poliza:"1234",
+    no_poliza:"1234",
+    tipo_poliza: {tipo_poliza_id:"1234"},
     nombre:"manu", 
     apellido:"castillo",
     telefono:"1234",
-    email:"manu@manumanito.com",
     documento_id:"2826", 
-    contacto_emergencia:"pepe",
-    telefono_contacto_e:"12345678"});
-
-db.Servicios_Recibidos.insert({ 
+    contacto_emergencia:"5715",
+    servicios_recibidos:{ 
         servicio_id:"1234", 
         hospital:"hospiNombre", 
         fecha:"29/02/2019", 
@@ -30,8 +28,8 @@ db.Servicios_Recibidos.insert({
         resultados:"buenos", 
         observaciones:"muchas", 
         costo_total:"Q0.00", 
-        costo_cubierto:"Q10,000", 
-        costo_pagado:"Q0.00"});
+        costo_cubierto:"10,000 tukis", 
+        costo_pagado:"0.00tukis" } });
 });
 
 
@@ -53,6 +51,6 @@ db.hospitales.insert({
 });
 
 db.polizas.insert({
-    tipo_poliza:"la poliza",
-    cobertura:"20%"
+    tipopoliza_id:"123456",
+    tipo_poliza:"la poliza"
 });

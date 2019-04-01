@@ -10,5 +10,4 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <script src="js/vendor/jquery.js"></script>
-    <script src="js/app.js"></script>
 </head>

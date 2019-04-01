@@ -18,13 +18,11 @@
         <br>
         <a href="administracionPolizas.jsp" class="button">Administracion de polizas</a>
         <br>
-        <a href="aseguradosHospital.jsp" class="button">Coberturas pagadas</a>
+        <a href="http://localhost:8080/proyectoDB2/aseguradosHospital.jsp" class="button">Coberturas pagadas</a>
         <br>
 
     </body>
 </html>
-
-
 
 
 
