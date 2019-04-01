@@ -22,6 +22,7 @@ gio\co\seguros\nuevoCliente.class
 gio\co\seguros\eliminarCliente.class
 gio\co\seguros\modificarPoliza0.class
 gio\co\seguros\MongoConnectDB.class
+gio\co\seguros\Cliente\GetCliente.class
 gio\co\seguros\eliminarPoliza.class
 gio\co\seguros\eliminarUsuario.class
 gio\co\seguros\modificarUsuario0.class

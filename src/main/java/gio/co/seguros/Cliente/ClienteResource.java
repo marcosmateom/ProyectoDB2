@@ -30,7 +30,7 @@ public class ClienteResource {
         @Path("/getCliente")
         @Produces(MediaType.APPLICATION_JSON)
         public List<Document> getCliente(
-            @QueryParam("cId") String cId){
+            @QueryParam("dpi") String cId){
         //Obtener # del hospital
         makeList(cId);
         
@@ -72,6 +72,7 @@ public class ClienteResource {
     }
     
 }
+
 
 
 
