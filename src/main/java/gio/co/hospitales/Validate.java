@@ -50,7 +50,8 @@ public class Validate extends HttpServlet {
 		String user, password, hospnum;
 		user = request.getParameter("user_id").toString();
 		password = request.getParameter("password").toString();
-                hospnum = request.getParameter("hospitalNum");
+                //hospnum = request.getParameter("hospitalNum");
+                hospnum = "1";
 		try {
 			Connection conn = gio.co.hospitales.JavaConnectDb.connectDbH(Integer.parseInt(hospnum));
 			String sql = "select * from usuario where usuario='"+user+"' and pass='"+password+"'";

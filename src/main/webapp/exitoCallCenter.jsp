@@ -12,6 +12,12 @@
     </jsp:include>
     <%@ include file="partials/_headerLogged.jsp"%>
     <body>
-        <h1>Exito Call Center!</h1>
+        <div class="grid-container">
+            <div class="grid-x align-center">
+                <div class="cell small-10 medium-12">
+                    <h1>Exito Call Center!</h1>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
