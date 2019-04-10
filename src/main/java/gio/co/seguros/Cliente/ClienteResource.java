@@ -6,8 +6,10 @@
 package gio.co.seguros.Cliente;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,6 +17,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 /**
  *
@@ -49,13 +52,65 @@ public class ClienteResource {
                 if(cId!=null){
                     //Query con el filtro para seleccionar un paciente
                     //sql = "select * from pacientes where paciente_id ="+pId+" order by paciente_id";
-                    List<Document> clientes = (List<Document>) coll.find(new BasicDBObject("documentoIdentificacion", cId)).into( new ArrayList<Document>());
+                    List<? extends Bson> pipeline = Arrays.asList(
+                    new Document()
+                            .append("$match", new Document()
+                                    .append("documentoIdentificacion", cId)
+                            ), 
+                    new Document()
+                            .append("$lookup", new Document()
+                                    .append("from", "polizas")
+                                    .append("localField", "tipo_poliza")
+                                    .append("foreignField", "tipo_poliza")
+                                    .append("as", "join")
+                            ), 
+                    new Document()
+                            .append("$replaceRoot", new Document()
+                                    .append("newRoot", new Document()
+                                            .append("$mergeObjects", Arrays.asList(
+                                                    new Document()
+                                                            .append("$arrayElemAt", Arrays.asList(
+                                                                    "$join",
+                                                                    0.0
+                                                                )
+                                                            ),
+                                                    "$$ROOT"
+                                                )
+                                            )
+                                    )
+                            )
+            );
+                    List<Document> clientes = (List<Document>) coll.aggregate(pipeline).into( new ArrayList<Document>());
                     clientsList = clientes;
                 }
                 else{
                     //Query de todos los pacientes
                     //MongoCollection<Document> coll = gio.co.seguros.collPoliza.collpoliza();
-                    List<Document> clientes = (List<Document>) coll.find().into( new ArrayList<Document>());
+                    List<? extends Bson> pipeline = Arrays.asList(
+                    new Document()
+                            .append("$lookup", new Document()
+                                    .append("from", "polizas")
+                                    .append("localField", "tipo_poliza")
+                                    .append("foreignField", "tipo_poliza")
+                                    .append("as", "join")
+                            ), 
+                    new Document()
+                            .append("$replaceRoot", new Document()
+                                    .append("newRoot", new Document()
+                                            .append("$mergeObjects", Arrays.asList(
+                                                    new Document()
+                                                            .append("$arrayElemAt", Arrays.asList(
+                                                                    "$join",
+                                                                    0.0
+                                                                )
+                                                            ),
+                                                    "$$ROOT"
+                                                )
+                                            )
+                                    )
+                            )
+            );
+                    List<Document> clientes = (List<Document>) coll.aggregate(pipeline).into( new ArrayList<Document>());
                     clientsList = clientes;
                 }
                 
@@ -66,12 +121,18 @@ public class ClienteResource {
                 //String a2 = a;
 
                 
-            }catch(Exception e){
+            }catch (MongoException e) {
                 System.err.println(e);
             }
+            
     }
     
 }
+
+
+
+
+
 
 
 
