@@ -24,26 +24,11 @@
                     <br>
                     <a class="button" href="citas_h.jsp">Ver Citas</a>
                     <br>
+                    <a class="button" href="adminAutorizacion.jsp">Administracion autorizaciones</a>
+                    <br>
                 </div>
             </div>
         </div>
 
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
