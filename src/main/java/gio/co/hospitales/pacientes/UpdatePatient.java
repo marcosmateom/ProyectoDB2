@@ -92,9 +92,9 @@ public class UpdatePatient extends HttpServlet {
             int answ = obj.getInt("up");
 
             if (answ == 1) {
-                response.sendRedirect("http://localhost:8080/proyectoDB2-Hospitales/pacientes_h.jsp?up=1");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/pacientes_h.jsp?up=1");
             } else {
-                response.sendRedirect("http://localhost:8080/proyectoDB2-Hospitales/pacientes_h.jsp?up=0");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/pacientes_h.jsp?up=0");
             }
             wr.close();
             rd.close();

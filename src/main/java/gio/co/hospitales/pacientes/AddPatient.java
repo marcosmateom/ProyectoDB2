@@ -93,10 +93,10 @@ public class AddPatient extends HttpServlet {
             int answ = obj.getInt("in");
             
             if(answ==1){
-                response.sendRedirect("http://localhost:8080/proyectoDB2-Hospitales/pacientes_h.jsp?in=1");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/pacientes_h.jsp?in=1");
             }
             else{
-                response.sendRedirect("http://localhost:8080/proyectoDB2-Hospitales/pacientes_h.jsp?in=0");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/pacientes_h.jsp?in=0");
             }
             wr.close();
             rd.close();

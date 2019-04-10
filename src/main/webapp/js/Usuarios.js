@@ -3,7 +3,7 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/proyectoDB2/rest/usuario/getUsuario/',
+                url: 'http://localhost:8080/proyectoDB2-seguro/rest/usuario/getUsuario/',
                 dataType: 'json',
                 success: function(data) {
                     var $uData = $('#dat');

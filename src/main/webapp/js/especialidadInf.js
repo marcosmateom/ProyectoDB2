@@ -3,7 +3,7 @@ $(document).ready(
             var $idNum = $('#idNum');
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/proyectoDB2/SpecialTypeInfo',
+                url: 'http://localhost:8080/proyectoDB2-seguro/SpecialTypeInfo',
                 dataType: 'json',
                 success: function(data) {
                     var $pData = $('#especialidadData');

@@ -3,7 +3,7 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/proyectoDB2/restP/poliza/getPoliza/',
+                url: 'http://localhost:8080/proyectoDB2-seguro/restP/poliza/getPoliza/',
                 dataType: 'json',
                 success: function(data) {
                     var $pData = $('#tipoP');

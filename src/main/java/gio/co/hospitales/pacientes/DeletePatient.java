@@ -72,9 +72,9 @@ public class DeletePatient extends HttpServlet {
             int answ = obj.getInt("del");
 
             if (answ == 1) {
-                response.sendRedirect("http://localhost:8080/proyectoDB2-Hospitales/pacientes_h.jsp?del=1");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/pacientes_h.jsp?del=1");
             } else {
-                response.sendRedirect("http://localhost:8080/proyectoDB2-Hospitales/pacientes_h.jsp?del=0");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/pacientes_h.jsp?del=0");
             }
             wr.close();
             rd.close();
