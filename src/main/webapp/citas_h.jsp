@@ -15,40 +15,35 @@
     <%@ include file="partials/_headerLogged.jsp"%>
     <!--Verify if the user has access-->
     <%@ include file="partials/_getInfo.jsp"%>
-    <%
-        if(rol.equals("1")||(rolNum<=3)){
-            
-        }
-        else{
+    <%        
+        if (rol.equals("1") || (rolNum <= 3)) {
+        } else {
             response.sendRedirect("home_h.jsp");
         }
-        if((request.getParameter("in")!=null)){
-            if(request.getParameter("in").equals("1")){
+        if ((request.getParameter("in") != null)) {
+            if (request.getParameter("in").equals("1")) {
                 out.println("<script>alert(\"Cita agregada exitosamente!\");</script>");
-            }
-            else if(request.getParameter("in").equals("0")){
+            } else if (request.getParameter("in").equals("0")) {
                 out.println("<script>alert(\"No se ha logrado agregar la cita, vuelve a intentarlo\");</script>");
             }
         }
-        if((request.getParameter("up")!=null)){
-            if(request.getParameter("up").equals("1")){
+        if ((request.getParameter("up") != null)) {
+            if (request.getParameter("up").equals("1")) {
                 out.println("<script>alert(\"Cita actualizada exitosamente!\");</script>");
-            }
-            else if(request.getParameter("up").equals("0")){
+            } else if (request.getParameter("up").equals("0")) {
                 out.println("<script>alert(\"No se ha logrado actualizar la cita, vuelve a intentarlo\");</script>");
             }
         }
-        if((request.getParameter("del")!=null)){
-            if(request.getParameter("del").equals("1")){
+        if ((request.getParameter("del") != null)) {
+            if (request.getParameter("del").equals("1")) {
                 out.println("<script>alert(\"Cita eliminada exitosamente!\");</script>");
-            }
-            else if(request.getParameter("del").equals("0")){
+            } else if (request.getParameter("del").equals("0")) {
                 out.println("<script>alert(\"No se ha logrado eliminar la cita, vuelve a intentarlo\");</script>");
             }
         }
     %>
     <body>
-        
+
         <div class="grid-container">
             <div class="grid-x align-center">
                 <div class="cell small-10 medium-12">
@@ -73,5 +68,5 @@
         </div>
     </body>
 </html>
-    <script src="js/citas.js"></script>
+<script src="js/citas.js"></script>
 </html>
