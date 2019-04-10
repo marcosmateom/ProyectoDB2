@@ -18,6 +18,7 @@ gio\co\seguros\nuevaPoliza.class
 gio\co\seguros\collPoliza.class
 gio\co\seguros\modificarCliente.class
 gio\co\seguros\Poliza\PolizaResource.class
+.netbeans_automatic_build
 gio\co\hospitales\TypeSeguro.class
 gio\co\seguros\Usuario\Usuarios.class
 gio\co\seguros\collClientes.class
