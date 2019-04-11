@@ -24,7 +24,20 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    
+    <servlet>
+        <servlet-name>Rest para autotizaciones seguro</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>gio.co.seguros.ws.auth</param-value>
+        </init-param>
+        <!-- this is only required if using json -->
+        <init-param>
+                <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+                <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet>
         <servlet-name>WS Polizas</servlet-name>
         <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
@@ -64,12 +77,14 @@
         <servlet-name>WS Polizas</servlet-name>
         <url-pattern>/restP/*</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>WS Clientes</servlet-name>
         <url-pattern>/restC/*</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>Rest para autotizaciones seguro</servlet-name>
+        <url-pattern>/restAuth/*</url-pattern>
+    </servlet-mapping> 
 </web-app>
 
 

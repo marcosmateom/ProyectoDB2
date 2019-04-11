@@ -20,6 +20,8 @@ gio\co\seguros\modificarCliente.class
 gio\co\seguros\Poliza\PolizaResource.class
 gio\co\hospitales\TypeSeguro.class
 gio\co\seguros\Usuario\Usuarios.class
+gio\co\seguros\ws\auth\AuthResource.class
+gio\co\seguros\ws\auth\CollAuth.class
 gio\co\seguros\collClientes.class
 gio\co\seguros\Usuario\UsuarioResource.class
 gio\co\hospitales\JavaConnectDb.class

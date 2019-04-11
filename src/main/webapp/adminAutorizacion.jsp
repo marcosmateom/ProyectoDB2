@@ -20,19 +20,20 @@
                         <thead>
                             <tr>
                                 <th>ID Autorizacion</th>
-                                <th># Poliza</th>
+                                <th>DPI</th>
                                 <th>Hospital</th>
-                                <th>Paciente</th>
                                 <th>Servicio</th>
-                                <th>Fecha</th>
+                                <th>Fecha de la Cita</th>
+                                <th>Estado</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody id="historialData">
+                        <tbody id="authData">
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </body>
+    <script src="js/autorizacion/authList.js"></script>
 </html>
