@@ -11,7 +11,7 @@ $(document).ready(
                     //$uData.append("holaa 1");
                     for (var i = 0; i < data.length; i++) {
                         //$pData.append("holaa 1");
-                        $pData.append("<tr><td>"+data[i]._id.machineIdentifier+"</td><td>"+data[i].dpi+"</td><td>"+data[i].hospital+"</td><td>"+data[i].servicio+"</td><td>"+data[i].fecha+"</td><td>"+data[i].estado+"</td><td><a href=\"modificarPoliza0.jsp?nPoliza="+data[i].tipo_poliza+"\" class=\"button pLink expanded\">Modificar</a><a href=\"eliminarPoliza.jsp?nPoliza="+data[i].tipo_poliza+"\" class=\"button pLink expanded\">Eliminar</a></td></tr>");
+                        $pData.append("<tr><td>"+data[i]._id+"</td><td>"+data[i].dpi+"</td><td>"+data[i].hospital+"</td><td>"+data[i].servicio+"</td><td>"+data[i].fecha+"</td><td>"+data[i].estado+"</td><td><a href=\"modificarPoliza0.jsp?nPoliza="+data[i].tipo_poliza+"\" class=\"button pLink expanded\">Modificar</a><a href=\"eliminarPoliza.jsp?nPoliza="+data[i].tipo_poliza+"\" class=\"button pLink expanded\">Eliminar</a></td></tr>");
                     }
                     if(data.length===0){
                         $pData.append("<p>Hubo un error!</p>");
