@@ -32,6 +32,7 @@ gio\co\hospitales\DocInfo.class
 gio\co\seguros\nuevoCliente.class
 gio\co\hospitales\citas\UpdateCita.class
 gio\co\hospitales\citas\DeleteCita.class
+gio\co\hospitales\pacientes\confirmPatientInHospital.class
 gio\co\hospitales\pacientes\UpdatePatient.class
 gio\co\hospitales\GetHorarios.class
 gio\co\hospitales\pacientes\GetPatient.class
