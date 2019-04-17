@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
+import org.json.JSONObject;
 
 @WebServlet("/CoberturaS")
 
@@ -45,7 +46,8 @@ public class CoberturaS extends HttpServlet {
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		PrintWriter out = response.getWriter();
-		response.setContentType("text/html");
+		response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
                 String hospNo, servicio;
                 hospNo = request.getParameter("hospNo").toString();
                 //hospNo = "1";
@@ -57,7 +59,7 @@ public class CoberturaS extends HttpServlet {
                             int index = coberturas.size();
                             Document doc = coberturas.get(0);
                             List<Document> servicios = (List<Document>) doc.get("servicios");
-                            boolean res = false;
+                            String res = "false";
                             String[] stringArray = servicios.toArray(new String[0]);
                             String a = "a";
                             int i =0;
@@ -65,14 +67,17 @@ public class CoberturaS extends HttpServlet {
                             for  (i = 0; i < stringArray.length; i++){
                                 servi = stringArray[i];
                                 if(servi.equals(servicio)){
-                                    res = true;
+                                    res = "true";
                                 }
                                 
                             }
+                            JSONObject resp= new JSONObject("{respuesta:"+res+"}");
 
-                            request.setAttribute("res", res);
-                            RequestDispatcher rd = request.getRequestDispatcher("p.jsp");
-                            rd.forward(request, response);
+                            out.println(resp.toString());
+                            a="h";
+                            //request.setAttribute("res", res);
+                            //RequestDispatcher rd = request.getRequestDispatcher("p.jsp");
+                            //rd.forward(request, response);
                             
                         
                         } catch(MongoException | ClassCastException e){
@@ -81,42 +86,5 @@ public class CoberturaS extends HttpServlet {
 	}
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
