@@ -13,6 +13,10 @@
         <input type="password" name="password" placeholder="Password"/><br>
         <input type="submit" value="Login"/>
     </form>
+    <form action="CoberturaS" method="post">
+        <input type="submit" value="Login"/>
+    </form>
 </body>
 </html>
+
 
