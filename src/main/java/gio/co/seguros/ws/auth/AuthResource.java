@@ -195,7 +195,7 @@ public class AuthResource {
             dataBuilder.append(URLEncoder.encode("hospNo", "UTF-8")).append('=').append(URLEncoder.encode(Integer.toString(hospNum), "UTF-8")).append("&").
                     append(URLEncoder.encode("servicio", "UTF-8")).append('=').append(URLEncoder.encode(serv, "UTF-8"));
             // Send data
-            URL url = new URL("http://localhost:8080/proyectoDB2-seguro/coberturaS");
+            URL url = new URL("http://localhost:8080/proyectoDB2-seguro/CoberturaS");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
@@ -211,10 +211,10 @@ public class AuthResource {
                 response2.append(line);
             }
             JSONObject obj = new JSONObject(response2.toString());
-            String answ = obj.getString("respuesta");
+            Boolean answ = obj.getBoolean("respuesta");
             wr.close();
             rd.close();
-            if (answ.equals("true")) {
+            if (answ) {
                 return true;
             } else {
                 return false;
