@@ -1,11 +1,13 @@
 gio\co\hospitales\pacientes\DeletePatient.class
 gio\co\seguros\collUsuarios.class
 gio\co\seguros\modificarCliente0.class
+gio\co\seguros\collServicios.class
 gio\co\seguros\mongoLista.class
 gio\co\seguros\modificarPoliza.class
 gio\co\hospitales\Logout.class
 gio\co\hospitales\pacientes\AddPatient.class
 gio\co\hospitales\GetUsuario.class
+gio\co\seguros\CoberturaS.class
 gio\co\seguros\nuevoUsuario.class
 gio\co\seguros\ValidateMongo.class
 gio\co\hospitales\GetServicios.class

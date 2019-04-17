@@ -12,7 +12,7 @@ $(document).ready(
                     //$uData.append("holaa 1");
                     for (var i = 0; i < data.length; i++) {
                         //$pData.append("holaa 1");
-                        $pData.append("<option value="+data[i].cobertura+">"+data[i].tipo_poliza+"</option>");
+                        $pData.append("<option value="+data[i].tipo_poliza+">"+data[i].tipo_poliza+"</option>");
                     }
                     if(data.length===0){
                         $pData.append("<p>No hay datos disponibles</p>");
@@ -25,4 +25,5 @@ $(document).ready(
                 }
             });
 });
+
 
