@@ -18,7 +18,7 @@
         <div class="grid-container">
             <div class="grid-x align-center-middle">
                 <div class="cell small-10 medium-8">
-                    <form class="form" action="agregarCita_h.jsp" method="post">
+                    <form class="form" action="aggregarC_h.jsp" method="get">
                         <h4>Seleccione el cliente y el servicio que desea</h4>
                         
                         <label>Paciente: 
@@ -45,3 +45,6 @@
     <script src="js/patientsList.js"></script>
     <script src="js/horarioInf.js"></script>
 </html>
+
+
+
