@@ -15,7 +15,7 @@ $(document).ready(
                 url: 'http://localhost:8080/proyectoDB2-seguro/restC/cliente/getCliente',
                 dataType: 'json',
                 data: { 
-                    pId: query_string('dpi') 
+                    pId: query_string('pid') 
                 },
                 success: function(data) {
                     var $name = $('#nombreP');
@@ -42,6 +42,7 @@ $(document).ready(
                 }
             });
 });
+
 
 
 

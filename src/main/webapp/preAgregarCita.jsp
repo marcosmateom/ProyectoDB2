@@ -31,6 +31,10 @@
                         <h4>Seleccione el cliente y el servicio que desea</h4>
                         
                         <!--<input type="hidden" name="hospital" value="</*%= request.getParameter("hospNum") */%>"> -->
+                        
+                        
+                        
+                        
                         <label>Cliente: 
                             <select id="clientes" name="pId" required>
                             </select>
@@ -66,6 +70,10 @@
     <script src="js/horarioInf.js"></script>
     
 </html>
+
+
+
+
 
 
 
