@@ -48,7 +48,7 @@
             <div class="grid-x align-center">
                 <div class="cell small-10 medium-12">
                     <h1>Citas:</h1>
-                    <a class="button" href="aggregarC_h.jsp">Nueva Cita</a>
+                    <a class="button" href="preAgregarCita.jsp">Nueva Cita</a>
                     <table>
                         <thead>
                             <tr>
@@ -70,3 +70,4 @@
 </html>
 <script src="js/citas.js"></script>
 </html>
+

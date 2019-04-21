@@ -20,7 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 public class GetCita extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    public static String hospitalNum = "1";
+    //CAMBIADO POR PRUEBAS
+    public static String hospitalNum = "3";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -76,3 +77,5 @@ public class GetCita extends HttpServlet {
     }
 
 }
+
+

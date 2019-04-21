@@ -24,7 +24,8 @@ import org.json.JSONObject;
 public class AddPatient extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static String hospitalNum = "1";
+    //CAMBIADO PARA PRUEBAS
+    private static String hospitalNum = "3";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -116,3 +117,4 @@ public class AddPatient extends HttpServlet {
         }
     }
 }
+

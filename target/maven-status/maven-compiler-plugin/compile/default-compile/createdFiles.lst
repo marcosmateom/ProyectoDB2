@@ -3,6 +3,7 @@ gio\co\seguros\modificarCliente0.class
 gio\co\seguros\collServicios.class
 gio\co\seguros\mongoLista.class
 gio\co\hospitales\pacientes\AddPatient.class
+gio\co\seguros\verificarPH.class
 gio\co\hospitales\GetServicios.class
 gio\co\hospitales\GetHistorial.class
 gio\co\seguros\Cliente\ClienteResource.class
@@ -20,6 +21,7 @@ gio\co\hospitales\citas\DeleteCita.class
 gio\co\hospitales\pacientes\UpdatePatient.class
 gio\co\seguros\eliminarCliente.class
 gio\co\hospitales\SpecialTypeInfo.class
+gio\co\seguros\Citas\CitasDesdeSeguro.class
 gio\co\seguros\MongoConnectDB.class
 gio\co\seguros\modificarUsuario0.class
 gio\co\hospitales\pacientes\DeletePatient.class
