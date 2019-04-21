@@ -1,4 +1,4 @@
-package gio.co.seguros;
+package gio.co.seguros.Citas;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -116,14 +116,13 @@ public class verificarPH extends HttpServlet {
             
             {            
             if(respuesta.length()>2){
-            //out.println(respuesta);
-            
-            
-            response.sendRedirect("aggregarC_h.jsp?dpi="+parDPI+"&hosp="+parHosp+"&servicioId="+parServ);
+                //out.println(respuesta);           
+                response.sendRedirect("aggregarC_h.jsp?dpi="+parDPI+"&hosp="+parHosp+"&servicioId="+parServ);
             } 
             else {
-                out.println("no existe el men");
+                //out.println("no existe el men");
                 //out.println(response22);
+                response.sendRedirect("aggregarP_h.jsp?dpi="+parDPI+"&hosp="+parHosp+"&servicioId="+parServ);
                 
                 
                 
@@ -143,6 +142,8 @@ public class verificarPH extends HttpServlet {
     
 
 }
+
+
 
 
 

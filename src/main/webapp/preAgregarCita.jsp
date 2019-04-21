@@ -50,7 +50,7 @@
                             </select>
                         </label>
                         <br>
-                        <input type="submit" class="cell button medium-8" value="Modificar">
+                        <input type="submit" class="cell button medium-8" value="Verificar paciente">
                     </form>
                 </div>
             </div>
@@ -66,6 +66,7 @@
     <script src="js/horarioInf.js"></script>
     
 </html>
+
 
 
 
