@@ -44,8 +44,7 @@ public class GetCliente extends HttpServlet {
             String url;
             String parClienteId = request.getParameter("dpi");
             if ((parClienteId != null) && !(parClienteId.equals(""))) {
-                int cId = Integer.parseInt(request.getParameter("dpi"));
-                //double DPIcliente = Double.parseDouble(parDPI);
+                long cId = Long.parseLong(request.getParameter("dpi"));
                 //url = "http://25.65.236.60:8080/proyectoDB2-seguro/restC/cliente/getCliente?dpi=" + cId;
                 url = "http://localhost:8080/proyectoDB2-seguro/restC/cliente/getCliente?dpi=" + cId;
             } else {

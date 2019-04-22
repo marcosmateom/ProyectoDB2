@@ -67,8 +67,7 @@ public class AddCita extends HttpServlet {
             
             String urlHosp;
             int selectHosp = Integer.parseInt(hospitalnume);
-            
-              //CAMBIAR PATHS
+             //CAMBIAR PATHS
             switch (selectHosp){
                 case 1:
                         urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
@@ -83,7 +82,6 @@ public class AddCita extends HttpServlet {
                         urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
                     break;
             }
-            
             URL url = new URL(urlHosp);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
