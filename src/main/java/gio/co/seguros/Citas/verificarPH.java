@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.*;
-import com.google.gson.*;
 import java.io.File;
 import java.net.URI;
 import javax.ws.rs.core.Response;
@@ -65,13 +64,18 @@ public class verificarPH extends HttpServlet {
             //CAMBIAR PATHS AQUI
             switch (parHosp){
                 case 1:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                    /*
+                        25.66.75.32:8080
+                        25.65.236.60:8080
+                        25.74.104.162:8080
+                    */
+                        urlH = "http://25.66.75.32:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 case 2:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospital12/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://25.65.236.60:8080/proyectoDB2-Hospital11/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 case 3:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospital13/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://25.74.104.162:8080/proyectoDB2-Hospital13/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 default:
                         urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
@@ -142,6 +146,10 @@ public class verificarPH extends HttpServlet {
     
 
 }
+
+
+
+
 
 
 
