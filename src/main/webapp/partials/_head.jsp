@@ -9,5 +9,7 @@
     <title><%= request.getParameter("title") %></title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/complementario.css">
     <script src="js/vendor/jquery.js"></script>
 </head>
+

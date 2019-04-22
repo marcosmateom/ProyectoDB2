@@ -48,33 +48,157 @@
         }
     %>
     <body>
-
-        <div class="grid-container">
-            <div class="grid-x align-center">
-                <div class="cell small-10 medium-12">
-                    <h1>Citas:</h1>
-                    <a class="button" href="preAgregarCita.jsp">Nueva Cita</a>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID Cita</th>
-                                <th>Area</th>
-                                <th>Doctor</th>
-                                <th>Paciente</th>
-                                <th>Fecha</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="historialData">
-                        </tbody>
-                    </table>
+        
+            <ul class="tabs" data-tabs id="example-tabs">
+            <button class="tabs-titles" onclick="openTabs(event, 'panel1')"><a href="#panel1" aria-selected="true">Hospital 1</a></button>
+            <button class="tabs-titles" onclick="openTabs(event, 'panel2')"><a href="#panel2">Hospital 2</a></button>
+            <button class="tabs-titles" onclick="openTabs(event, 'panel3')"><a href="#panel3">Hospital 3</a></button>
+            </ul>
+        
+            <div class="tabs-content" data-tabs-content="example-tabs">
+                
+                <div class="tabs-panels" id="panel1">
+                    
+                    <div class="grid-container">
+                            <div class="grid-x align-center">
+                                <div class="cell small-10 medium-12">
+                                    <h1>Citas:</h1>
+                                    <a class="button" href="preAgregarCita.jsp">Nueva Cita</a>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Hospital</th>
+                                                <th>ID Cita</th>
+                                                <th>Area</th>
+                                                <th>Doctor</th>
+                                                <th>Paciente</th>
+                                                <th>Fecha</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="historialData">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                 </div>
+                
+                <div class="tabs-panels" id="panel2">
+                                                            
+                    <div class="grid-container">
+                            <div class="grid-x align-center">
+                                <div class="cell small-10 medium-12">
+                                    <h1>Citas:</h1>
+                                    <a class="button" href="preAgregarCita.jsp">Nueva Cita</a>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Hospital</th>
+                                                <th>ID Cita</th>
+                                                <th>Area</th>
+                                                <th>Doctor</th>
+                                                <th>Paciente</th>
+                                                <th>Fecha</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="historialData2">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+                    
+                </div>
+                                
+                <div class="tabs-panels" id="panel3">
+                    
+                    <div class="grid-container">
+                            <div class="grid-x align-center">
+                                <div class="cell small-10 medium-12">
+                                    <h1>Citas:</h1>
+                                    <a class="button" href="preAgregarCita.jsp">Nueva Cita</a>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Hospital</th>
+                                                <th>ID Cita</th>
+                                                <th>Area</th>
+                                                <th>Doctor</th>
+                                                <th>Paciente</th>
+                                                <th>Fecha</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="historialData3">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+                    
+                </div>
+                
+                
             </div>
-        </div>
+        
+        
+        
+        
+        
+        
+    <script src="js/citas.js"></script>
+    <script src="js/forTabs.js"></script>
     </body>
+   
 </html>
-<script src="js/citas.js"></script>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
