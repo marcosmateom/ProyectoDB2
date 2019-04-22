@@ -19,7 +19,7 @@
                     <table>
                         <thead><tr><td><u>Datos Autorizacion</u></td></tr></thead>
                         <tbody>
-                            <tr><td id="authNum"><strong>Autorizacion No. </strong></td></tr>
+                            <tr><td><strong>Autorizacion No. </strong><%= request.getParameter("idAuth")%></td></tr>
                             <tr><td id="hospNum"><strong>Hospital: </strong></td></tr>
                             <tr><td id="citaId"><strong>Numero de Cita: </strong></td></tr>
                             <tr><td id="fecha"><strong>Fecha: </strong></td></tr>

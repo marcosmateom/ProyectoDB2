@@ -20,7 +20,7 @@ function query_string(variable)
 function getHorario() {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/proyectoDB2-Hospitales/restC/cita/getDisp',
+        url: 'http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getDisp',
         dataType: 'json',
         data: {
             fecha: getValue('fecha'),

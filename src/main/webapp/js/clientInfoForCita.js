@@ -12,7 +12,7 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/proyectoDB2-Hospitales/restP/patient/getPatientDPI',
+                url: 'http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI',
                 dataType: 'json',
                 data: { 
                     dpi: query_string('dpi') 

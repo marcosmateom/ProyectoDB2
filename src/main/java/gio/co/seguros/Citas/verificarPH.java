@@ -65,16 +65,16 @@ public class verificarPH extends HttpServlet {
             
             switch (parHosp){
                 case 1:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospitales/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 case 2:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospitales2/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital12/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 case 3:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospitales3/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital13/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 default:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospitales/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
             }
             
