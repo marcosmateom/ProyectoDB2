@@ -35,6 +35,7 @@ gio\co\hospitales\Validate.class
 gio\co\seguros\modificarUsuario.class
 gio\co\hospitales\citas\AddCita.class
 gio\co\seguros\Servicios\Servicios.class
+gio\co\hospitales\citas\GetAllCitas.class
 gio\co\seguros\nuevaPoliza.class
 gio\co\seguros\collPoliza.class
 gio\co\seguros\modificarCliente.class

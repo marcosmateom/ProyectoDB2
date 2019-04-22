@@ -3,7 +3,7 @@ $(document).ready(
             $.ajax({
                 type: 'GET',
                 //cambiar path a 25.66.75.32:8080
-                url: 'http://25.66.75.32:8080/proyectoDB2-Hospital1/restC/cita/getCita',
+                url: 'http://localhost:8080/proyectoDB2-seguro/GetAllCitas?hospNum=1',
                 dataType: 'json',
                 success: function(data) {
                     var $pData = $('#historialData');
@@ -24,6 +24,7 @@ $(document).ready(
                 }
             });
 });
+
 
 
 

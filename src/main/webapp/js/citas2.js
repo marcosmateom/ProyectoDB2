@@ -3,7 +3,7 @@ $(document).ready(
             $.ajax({
                 type: 'GET',
                 /*cambiar el numero de hospital del path 25.65.236.60:8080*/
-                url: 'http://25.65.236.60:8080/proyectoDB2-Hospital1/restC/cita/getCita',
+                url: 'http://localhost:8080/proyectoDB2-seguro/GetAllCitas?hospNum=2',
                 dataType: 'json',
                 success: function(data) {
                     var $pData = $('#historialData2');
@@ -23,6 +23,7 @@ $(document).ready(
                 }
             });
 });
+
 
 
 

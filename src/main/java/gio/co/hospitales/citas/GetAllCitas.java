@@ -38,19 +38,35 @@ public class GetAllCitas extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String url;
-            String parPId = request.getParameter("pId");
-            String parCitaId = request.getParameter("citaId");
-            if (((parPId != null) && !(parPId.equals("")))) {
-                int pId = Integer.parseInt(parPId);
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita?pId=" + pId;
-            } else if (((parCitaId != null) && !(parCitaId.equals("")))) {
-                int citaId = Integer.parseInt(parCitaId);
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita?citaId=" + citaId;
-            } else {
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita";
+            String urlHosp, numberH;
+            
+            numberH = request.getParameter("hospNum");
+            
+            
+            
+            int numberHosp=Integer.parseInt(numberH);
+            
+            switch(numberHosp){
+                case 1:
+                    
+                    /*
+                    25.66.75.32:8080
+                    */
+                    urlHosp = "http://25.66.75.32:8080/proyectoDB2-Hospital1/restC/cita/getCita";
+                break;
+                case 2:
+                    urlHosp = "http://25.65.236.60:8080/proyectoDB2-Hospital1/restC/cita/getCita";
+                break;
+                case 3:
+                    urlHosp = "http://25.74.104.162:8080/proyectoDB2-Hospital1/restC/cita/getCita";
+                break;     
+                default:
+                    urlHosp = "http://25.66.75.32:8080/proyectoDB2-Hospital1/restC/cita/getCita";
+                break;
+                                        
             }
-            URL obj = new URL(url);
+            
+            URL obj = new URL(urlHosp);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
@@ -77,6 +93,23 @@ public class GetAllCitas extends HttpServlet {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
