@@ -25,7 +25,7 @@ public class AddPatientFromAseg extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO PARA PRUEBAS
-    private static String hospitalNum = "3";
+    private static String hospitalNum = "1";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -51,7 +51,7 @@ public class AddPatientFromAseg extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             //Obtener parametros
-            String name,lastName,dir,bDate,segNum,tel,dpi,docId,asegNum,asegType, hospitalnum,serviceId;
+            String name,lastName,dir,bDate,segNum,tel,dpi,docId,asegNum,asegType, hospitalnume,serviceId;
             name = request.getParameter("nameP");
             lastName = request.getParameter("lastNameP");
             dir = request.getParameter("dir");
@@ -62,7 +62,7 @@ public class AddPatientFromAseg extends HttpServlet {
             docId = request.getParameter("docId");
             asegNum = request.getParameter("asegNum");
             asegType = request.getParameter("asegType");
-            hospitalnum = request.getParameter("hospNum");
+            hospitalnume = request.getParameter("hospNum");
             serviceId = request.getParameter("servicioId");
             // Construct data
             StringBuilder dataBuilder = new StringBuilder();
@@ -77,7 +77,39 @@ public class AddPatientFromAseg extends HttpServlet {
                     append(URLEncoder.encode("asegNum", "UTF-8")).append('=').append(URLEncoder.encode(asegNum, "UTF-8")).append("&").
                     append(URLEncoder.encode("asegType", "UTF-8")).append('=').append(URLEncoder.encode(asegType, "UTF-8"));
             // Send data
-            URL url = new URL("http://localhost:8080/proyectoDB2-Hospitales/restP/patient/addPatient");
+            
+            String urlHosp;
+            int selectHosp = Integer.parseInt(hospitalnume);
+            
+              //CAMBIAR PATHS
+            switch (selectHosp){
+                case 1:
+                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient";
+                    break;
+                case 2:
+                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient";
+                    break;
+                case 3:
+                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient";
+                    break;
+                default:
+                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient";
+                    break;
+            }
+            /*
+            if(hospitalnume=="1"){
+                
+            }
+            else if(hospitalnume=="2"){
+                
+            }
+            else {
+                
+            }
+            */
+            
+          
+            URL url = new URL(urlHosp);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
@@ -96,7 +128,7 @@ public class AddPatientFromAseg extends HttpServlet {
             int answ = obj.getInt("in");
             
             if(answ==1){
-                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/aggregarC_h.jsp?dpi="+dpi+"&servicioId="+serviceId+"&hosp="+hospitalnum);
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/aggregarC_h.jsp?dpi="+dpi+"&servicioId="+serviceId+"&hosp="+hospitalnume);
             }
             else{
                 response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/citas_h.jsp?pin=5");
@@ -119,6 +151,52 @@ public class AddPatientFromAseg extends HttpServlet {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

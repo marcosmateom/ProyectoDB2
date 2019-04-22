@@ -19,14 +19,14 @@
                         <h4>Agregar paciente al hospital <%= request.getParameter("hosp") %></h4>
                         <h5>Confirme los siguientes datos</h5>
                         
-                        <input type="hidden" name="id" value="">   
+                        <!--<input type="hidden" name="id" value=""> -->  
                         <input type="hidden" name="servicioId" value="<%= request.getParameter("servicioId") %>">
                         <input type="hidden" name="hospNum" value="<%= request.getParameter("hosp") %>">
                         <input type="hidden" name="aseguradoraId" value="1">
                         <input type="hidden" name="asegNum" value="1">
                         
                         <label> documento de identificacion del cliente:
-                        <input type="text" name="dpi" value="<%= request.getParameter("dpi") %>" readonly>
+                        <input type="text" name="dpi" value="<%= request.getParameter("dpi") %>" >
                         </label>
                         
                         
@@ -56,12 +56,12 @@
                         
                         <!--campo se debe autorellenar-->
                         <label>Poliza de seguro:
-                        <input type="text" name="segNum" id="polizaIdC" value="<%= request.getParameter("dpi") %>" readonly>
+                        <input type="text" name="segNum" id="polizaIdC" value="<%= request.getParameter("dpi") %>" >
                         </label>
                         
                         <!--campo se debe autorellenar-->
                         <label>Tipo de poliza:
-                        <input type="text" name="tipoPoliza" id="tipoPolizaC" value="" readonly>
+                        <input type="text" name="tipoPoliza" id="tipoPolizaC" value="" >
                         </label>
                         <input type="hidden" name="asegType" value="1">
                         
@@ -82,10 +82,12 @@
         </div>
     </body>
     <script type="text/javascript" src="js/docInf.js"></script>
-    <script type="text/javascript" src="js/horarioInf.js"></script>
-    
     <script type="text/javascript" src="js/clientInfo.js"></script>
 </html>
+
+
+
+
 
 
 

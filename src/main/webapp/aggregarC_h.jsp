@@ -28,11 +28,11 @@
                 <div class="cell small-10 medium-8">
                     <form class="form" action="AddCita" method="post">
                         
-                        <!--<input type="hidden" name="dpi" id="patientId" value="">-->
+                        <input type="hidden" name="hospNum" id="hospitalId" value="<%= request.getParameter("hosp") %>">
                         <input type="hidden" name="servicioId" id="serviceId" value="">
                         <input type="hidden" name="pId" id="patientId" value="">
                         
-                        <h4>Nueva Cita</h4>
+                        <h4>Nueva Cita en hospital <%= request.getParameter("hosp") %></h4>
                         <label>Paciente: 
                             <input type="text" name="pName" id="pacienteC" value="" readonly>
                         </label>
@@ -71,6 +71,10 @@
     <script type="text/javascript" src="js/servicioInfo.js"></script>
     
 </html>
+
+
+
+
 
 
 

@@ -49,25 +49,28 @@
     %>
     <body>
         
-            <ul class="tabs" data-tabs id="example-tabs">
-            <button class="tabs-titles" onclick="openTabs(event, 'panel1')"><a href="#panel1" aria-selected="true">Hospital 1</a></button>
-            <button class="tabs-titles" onclick="openTabs(event, 'panel2')"><a href="#panel2">Hospital 2</a></button>
-            <button class="tabs-titles" onclick="openTabs(event, 'panel3')"><a href="#panel3">Hospital 3</a></button>
-            </ul>
+            
         
-            <div class="tabs-content" data-tabs-content="example-tabs">
+            
                 
-                <div class="tabs-panels" id="panel1">
+                
                     
                     <div class="grid-container">
                             <div class="grid-x align-center">
                                 <div class="cell small-10 medium-12">
                                     <h1>Citas:</h1>
                                     <a class="button" href="preAgregarCita.jsp">Nueva Cita</a>
+                                    <ul class="tabs" data-tabs id="example-tabs">
+                                        <button class="tabs-titles" onclick="openTabs(event, 'panel1')"><a href="#panel1" aria-selected="true">Hospital 1</a></button>
+                                        <button class="tabs-titles" onclick="openTabs(event, 'panel2')"><a href="#panel2">Hospital 2</a></button>
+                                        <button class="tabs-titles" onclick="openTabs(event, 'panel3')"><a href="#panel3">Hospital 3</a></button>
+                                        </ul>
+                                    <div class="tabs-content" data-tabs-content="example-tabs">
+                                        
+                                    <div class="tabs-panels" id="panel1">
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>Hospital</th>
                                                 <th>ID Cita</th>
                                                 <th>Area</th>
                                                 <th>Doctor</th>
@@ -79,22 +82,11 @@
                                         <tbody id="historialData">
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                
-                <div class="tabs-panels" id="panel2">
-                                                            
-                    <div class="grid-container">
-                            <div class="grid-x align-center">
-                                <div class="cell small-10 medium-12">
-                                    <h1>Citas:</h1>
-                                    <a class="button" href="preAgregarCita.jsp">Nueva Cita</a>
+                                    </div>
+                                    <div class="tabs-panels" id="panel2">
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>Hospital</th>
                                                 <th>ID Cita</th>
                                                 <th>Area</th>
                                                 <th>Doctor</th>
@@ -106,23 +98,12 @@
                                         <tbody id="historialData2">
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                    </div>
-                    
-                </div>
-                                
-                <div class="tabs-panels" id="panel3">
-                    
-                    <div class="grid-container">
-                            <div class="grid-x align-center">
-                                <div class="cell small-10 medium-12">
-                                    <h1>Citas:</h1>
-                                    <a class="button" href="preAgregarCita.jsp">Nueva Cita</a>
+                                    </div> 
+                                        
+                                    <div class="tabs-panels" id="panel3">
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>Hospital</th>
                                                 <th>ID Cita</th>
                                                 <th>Area</th>
                                                 <th>Doctor</th>
@@ -134,11 +115,12 @@
                                         <tbody id="historialData3">
                                         </tbody>
                                     </table>
-                                </div>
+                                    </div> 
+                                        
                             </div>
-                    </div>
-                    
+                        </div>
                 </div>
+    
                 
                 
             </div>
@@ -149,10 +131,19 @@
         
         
     <script src="js/citas.js"></script>
+    <script src="js/citas2.js"></script>
+    <script src="js/citas3.js"></script>
     <script src="js/forTabs.js"></script>
     </body>
    
 </html>
+
+
+
+
+
+
+
 
 
 

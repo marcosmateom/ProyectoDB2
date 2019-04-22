@@ -54,7 +54,7 @@ public class verificarPH extends HttpServlet {
             String parDPI = request.getParameter("pId");
             String parServ = request.getParameter("servicioId");
             int parHosp = Integer.parseInt(request.getParameter("hospnum"));
-            parHosp=1;
+            //parHosp=1;
             //out.println(hayono);
             //out.println(parDPI);            
             //out.println(parServ);
@@ -62,19 +62,19 @@ public class verificarPH extends HttpServlet {
             urlCliente = "http://localhost:8080/proyectoDB2-seguro/restC/cliente/getCliente?dpi="+parDPI;
             
             double DPIcliente = Double.parseDouble(parDPI);
-            
+            //CAMBIAR PATHS AQUI
             switch (parHosp){
                 case 1:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospitales/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 case 2:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospitales2/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 case 3:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospitales3/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 default:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospitales/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
             }
             
@@ -142,6 +142,9 @@ public class verificarPH extends HttpServlet {
     
 
 }
+
+
+
 
 
 

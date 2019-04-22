@@ -1,3 +1,13 @@
+function getValue(variable)
+{
+    var value = document.getElementById(variable).value;
+    if (value !== null || value !== "") {
+        return value;
+    } else {
+        return("");
+    }
+}
+
 function query_string(variable)
 {
    var query = window.location.search.substring(1);
@@ -12,7 +22,7 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/proyectoDB2-Hospitales/restP/patient/getPatientDPI',
+                url: 'http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI',
                 dataType: 'json',
                 data: { 
                     dpi: query_string('dpi') 
@@ -35,6 +45,8 @@ $(document).ready(
                 }
             });
 });
+
+
 
 
 

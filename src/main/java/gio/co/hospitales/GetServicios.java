@@ -20,7 +20,7 @@ import oracle.jdbc.OracleResultSet;
 @WebServlet("/getServicios")
 public class GetServicios extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-        //CAMBIE ESTO PARA PRUEBAS
+        //CAMBIAR ESTO EN CADA HOSPITAL
         private static String hospitalNum = "1";
        
     /**
@@ -94,6 +94,7 @@ public class GetServicios extends HttpServlet {
             }
         }
 }
+
 
 
 

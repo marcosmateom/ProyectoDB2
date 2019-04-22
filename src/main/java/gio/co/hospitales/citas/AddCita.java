@@ -49,12 +49,13 @@ public class AddCita extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             //Obtener parametros
-            String pId,dateCita,hora,sId,citaId,docId;
+            String pId,dateCita,hora,sId,citaId,docId,hospitalnume;
             pId = request.getParameter("pId");
             dateCita = request.getParameter("fechaCita");
             hora = request.getParameter("hora");
             sId = request.getParameter("servicioId");
             docId = request.getParameter("docId");
+            hospitalnume = request.getParameter("hospNum");
             // Construct data
             StringBuilder dataBuilder = new StringBuilder();
             dataBuilder.append(URLEncoder.encode("pId", "UTF-8")).append('=').append(URLEncoder.encode(pId, "UTF-8")).append("&").
@@ -63,7 +64,27 @@ public class AddCita extends HttpServlet {
                     append(URLEncoder.encode("servicioId", "UTF-8")).append('=').append(URLEncoder.encode(sId, "UTF-8")).append("&").
                     append(URLEncoder.encode("docId", "UTF-8")).append('=').append(URLEncoder.encode(docId, "UTF-8"));
             // Send data
-            URL url = new URL("http://localhost:8080/proyectoDB2-Hospitales/restC/cita/addCita");
+            
+            String urlHosp;
+            int selectHosp = Integer.parseInt(hospitalnume);
+            
+              //CAMBIAR PATHS
+            switch (selectHosp){
+                case 1:
+                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
+                    break;
+                case 2:
+                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
+                    break;
+                case 3:
+                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
+                    break;
+                default:
+                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
+                    break;
+            }
+            
+            URL url = new URL(urlHosp);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
@@ -94,6 +115,10 @@ public class AddCita extends HttpServlet {
         }
     }
 }
+
+
+
+
 
 
 
