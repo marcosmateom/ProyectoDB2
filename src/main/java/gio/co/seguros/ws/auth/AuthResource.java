@@ -60,7 +60,6 @@ public class AuthResource {
             @QueryParam("servicio") String serv,
             @QueryParam("nameP") String nameP,
             @QueryParam("monto") String monto,
-            //@QueryParam("porcentaje") String porcentaje,
             @QueryParam("dpi") String dpi,
             @QueryParam("idCita") int idCita) {
         //Verificar si el cliente tiene seguro y si sí que devuelva el porcentaje

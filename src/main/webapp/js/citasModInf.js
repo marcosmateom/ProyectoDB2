@@ -16,7 +16,6 @@ $(document).ready(
                 dataType: 'json',
                 data: { 
                     citaId: query_string('citaId') 
-                    
                 },
                 success: function(data) {
                     var $fullFecha = data[0].fecha;
