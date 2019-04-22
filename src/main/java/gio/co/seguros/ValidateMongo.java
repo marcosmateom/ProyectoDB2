@@ -76,7 +76,7 @@ public class ValidateMongo extends HttpServlet {
                             //rd.forward(request, response);
                             //Creando las cookies para usuarios mongo
                             Cookie cookieUsername = new Cookie("user",usuariow);
-                            cookieUsername.setMaxAge(5*60);
+                            cookieUsername.setMaxAge(5*6000);
                             response.addCookie(cookieUsername);
                             
                             if(puesto.equals("Admin")){

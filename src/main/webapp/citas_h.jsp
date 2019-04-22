@@ -35,7 +35,7 @@
             }
         }
         if ((request.getParameter("pin") != null)) {
-            if (request.getParameter("up").equals("5")) {
+            if (request.getParameter("pin").equals("5")) {
                 out.println("<script>alert(\"Hubo un problema agergando al paciente!\");</script>");
             } 
         }
