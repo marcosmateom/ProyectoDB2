@@ -3,7 +3,7 @@ $(document).ready(
             $.ajax({
                 type: 'GET',
                 /*agregar el numero de hospital al path 25.74.104.162:8080*/
-                url: 'http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita',
+                url: 'http://25.74.104.162:8080/proyectoDB2-Hospital1/restC/cita/getCita',
                 dataType: 'json',
                 success: function(data) {
                     var $pData = $('#historialData3');
@@ -23,6 +23,7 @@ $(document).ready(
                 }
             });
 });
+
 
 
 

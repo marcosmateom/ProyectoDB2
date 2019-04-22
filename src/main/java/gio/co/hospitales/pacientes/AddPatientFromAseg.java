@@ -96,17 +96,7 @@ public class AddPatientFromAseg extends HttpServlet {
                         urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient";
                     break;
             }
-            /*
-            if(hospitalnume=="1"){
-                
-            }
-            else if(hospitalnume=="2"){
-                
-            }
-            else {
-                
-            }
-            */
+            
             
           
             URL url = new URL(urlHosp);
@@ -151,6 +141,7 @@ public class AddPatientFromAseg extends HttpServlet {
         }
     }
 }
+
 
 
 
