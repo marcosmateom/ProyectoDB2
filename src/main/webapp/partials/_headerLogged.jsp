@@ -10,7 +10,7 @@
         <div class="top-bar-left">
             <ul class="menu">
                 <figure>
-                    <a href="index.jsp"><img src="Imagenes/logo.jpg" class="logo" id="Navigation_Bar_Logo" /></a>
+                    <a href="index.jsp"><img src="https://www.troopsf.com/file/mongodb-logo.png" class="logo" id="Navigation_Bar_Logo" /></a>
                 </figure>
             </ul>
         </div>
@@ -25,5 +25,8 @@
         </div>
     </div>
 </header>
+
+
+
 
 
