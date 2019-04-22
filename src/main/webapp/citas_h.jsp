@@ -34,6 +34,11 @@
                 out.println("<script>alert(\"No se ha logrado actualizar la cita, vuelve a intentarlo\");</script>");
             }
         }
+        if ((request.getParameter("pin") != null)) {
+            if (request.getParameter("up").equals("5")) {
+                out.println("<script>alert(\"Hubo un problema agergando al paciente!\");</script>");
+            } 
+        }
         if ((request.getParameter("del") != null)) {
             if (request.getParameter("del").equals("1")) {
                 out.println("<script>alert(\"Cita eliminada exitosamente!\");</script>");
@@ -70,4 +75,6 @@
 </html>
 <script src="js/citas.js"></script>
 </html>
+
+
 

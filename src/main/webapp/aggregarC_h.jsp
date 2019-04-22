@@ -28,12 +28,13 @@
                 <div class="cell small-10 medium-8">
                     <form class="form" action="AddCita" method="post">
                         
-                        <input type="hidden" name="dpi" id="patientId" value="">
-                        <input type="hidden" name="id_subcategoria" id="serviceId" value="">
+                        <!--<input type="hidden" name="dpi" id="patientId" value="">-->
+                        <input type="hidden" name="servicioId" id="serviceId" value="">
+                        <input type="hidden" name="pId" id="patientId" value="">
                         
                         <h4>Nueva Cita</h4>
                         <label>Paciente: 
-                            <input type="text" name="pId" id="pacienteC" value="" readonly>
+                            <input type="text" name="pName" id="pacienteC" value="" readonly>
                         </label>
                         <label>DPI: 
                             <input type="text" name="dpi" value="<%= request.getParameter("dpi") %>" readonly>
@@ -70,6 +71,10 @@
     <script type="text/javascript" src="js/servicioInfo.js"></script>
     
 </html>
+
+
+
+
 
 
 

@@ -99,7 +99,7 @@ public class AddPatientFromAseg extends HttpServlet {
                 response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/aggregarC_h.jsp?dpi="+dpi+"&servicioId="+serviceId+"&hosp="+hospitalnum);
             }
             else{
-                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/citas_h.jsp?in=0");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/citas_h.jsp?pin=5");
             }
             wr.close();
             rd.close();
@@ -119,6 +119,8 @@ public class AddPatientFromAseg extends HttpServlet {
         }
     }
 }
+
+
 
 
 

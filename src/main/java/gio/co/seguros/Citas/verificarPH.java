@@ -33,7 +33,7 @@ public class verificarPH extends HttpServlet {
 
     public static int hayono = 0;
     private static final long serialVersionUID = 1L;
-    public static String hospitalNum = "3";
+    public static String hospitalNum = "1";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -142,6 +142,7 @@ public class verificarPH extends HttpServlet {
     
 
 }
+
 
 
 

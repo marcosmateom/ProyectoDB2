@@ -21,7 +21,7 @@ import oracle.jdbc.OracleResultSet;
 public class DocInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
         //LO CAMBIE PARA PRUEBAS
-        private static String hospitalNum = "3";
+        private static String hospitalNum = "1";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -97,5 +97,6 @@ public class DocInfo extends HttpServlet {
             }
         }
 }
+
 
 
