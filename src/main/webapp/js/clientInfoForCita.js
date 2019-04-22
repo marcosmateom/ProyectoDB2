@@ -11,24 +11,22 @@ function query_string(variable)
 $(document).ready(
         function() {
             $.ajax({
-                type: 'POST',
-                url: 'http://localhost:8080/proyectoDB2-seguro/restC/cliente/getCliente',
+                type: 'GET',
+                url: 'http://localhost:8080/proyectoDB2-Hospitales/restP/patient/getPatientDPI',
                 dataType: 'json',
                 data: { 
                     dpi: query_string('dpi') 
                 },
                 success: function(data) {
-                    var $name = $('#nombreC');
-                    $name.append(data[0].nombre);
-                    /*
-                    var $lastName = $('#apellidoC');
-                    $lastName.append(data[0].apellido);                   
-                                      
-                    var $tel = $('#telC');
-                    $tel.append(data[0].telefono);
                     
-                    var $aseguradora = $('#tipoPolizaC');
-                    $aseguradora.append(data[0].asegName);*/
+                    var $pInfo = 'pacienteC';
+                    document.getElementById($pInfo).value= data[0].nombre+" "+data[0].apellido;
+                    
+                    var $pId = 'patientId';
+                    document.getElementById($pId).value=data[0].id ;
+                    
+                    
+                    
                 },
                 error : function() {
                     var $pData = $('#patientData');
@@ -37,6 +35,22 @@ $(document).ready(
                 }
             });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

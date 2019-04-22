@@ -20,8 +20,8 @@ import org.json.JSONObject;
 /**
  * Servlet implementation class AddPatient
  */
-@WebServlet("/AddPatient")
-public class AddPatient extends HttpServlet {
+@WebServlet("/AddPatientFromAseg")
+public class AddPatientFromAseg extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO PARA PRUEBAS
@@ -30,7 +30,7 @@ public class AddPatient extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddPatient() {
+    public AddPatientFromAseg() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -51,7 +51,7 @@ public class AddPatient extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             //Obtener parametros
-            String name,lastName,dir,bDate,segNum,tel,dpi,docId,asegNum,asegType;
+            String name,lastName,dir,bDate,segNum,tel,dpi,docId,asegNum,asegType, hospitalnum,serviceId;
             name = request.getParameter("nameP");
             lastName = request.getParameter("lastNameP");
             dir = request.getParameter("dir");
@@ -62,6 +62,8 @@ public class AddPatient extends HttpServlet {
             docId = request.getParameter("docId");
             asegNum = request.getParameter("asegNum");
             asegType = request.getParameter("asegType");
+            hospitalnum = request.getParameter("hospNum");
+            serviceId = request.getParameter("servicioId");
             // Construct data
             StringBuilder dataBuilder = new StringBuilder();
             dataBuilder.append(URLEncoder.encode("nameP", "UTF-8")).append('=').append(URLEncoder.encode(name, "UTF-8")).append("&").
@@ -94,10 +96,10 @@ public class AddPatient extends HttpServlet {
             int answ = obj.getInt("in");
             
             if(answ==1){
-                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/pacientes_h.jsp?in=1");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/aggregarC_h.jsp?dpi="+dpi+"&servicioId="+serviceId+"&hosp="+hospitalnum);
             }
             else{
-                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/pacientes_h.jsp?in=0");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/citas_h.jsp?in=0");
             }
             wr.close();
             rd.close();
@@ -117,4 +119,9 @@ public class AddPatient extends HttpServlet {
         }
     }
 }
+
+
+
+
+
 

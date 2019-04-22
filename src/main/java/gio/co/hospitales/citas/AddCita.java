@@ -22,7 +22,8 @@ import org.json.JSONObject;
 public class AddCita extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static String hospitalNum = "1";
+    //LO CAMBIE POR PRUEBAS
+    private static String hospitalNum = "3";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -93,3 +94,5 @@ public class AddCita extends HttpServlet {
         }
     }
 }
+
+

@@ -25,7 +25,7 @@ public class AddPatient extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO PARA PRUEBAS
-    private static String hospitalNum = "3";
+    private static String hospitalNum = "1";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -117,4 +117,5 @@ public class AddPatient extends HttpServlet {
         }
     }
 }
+
 

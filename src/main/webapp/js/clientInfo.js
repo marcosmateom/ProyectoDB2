@@ -11,24 +11,29 @@ function query_string(variable)
 $(document).ready(
         function() {
             $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url: 'http://localhost:8080/proyectoDB2-seguro/restC/cliente/getCliente',
                 dataType: 'json',
                 data: { 
                     dpi: query_string('dpi') 
                 },
                 success: function(data) {
-                    var $name = $('#nombreC');
-                    $name.append(data[0].nombre);
-                    /*
-                    var $lastName = $('#apellidoC');
-                    $lastName.append(data[0].apellido);                   
-                                      
-                    var $tel = $('#telC');
-                    $tel.append(data[0].telefono);
+                                        
+                    var $nameP = 'nombreC';
+                    document.getElementById($nameP).value= data[0].nombre;
                     
-                    var $aseguradora = $('#tipoPolizaC');
-                    $aseguradora.append(data[0].asegName);*/
+                    var $lastNameP = 'apellidoC';
+                    document.getElementById($lastNameP).value= data[0].apellido;
+                    
+                    var $phoneC = 'telC';
+                    document.getElementById($phoneC).value= data[0].telefono;
+                    
+                    var $polizaType = 'tipoPolizaC';
+                    document.getElementById($polizaType).value= data[0].tipo_poliza;
+                    
+                    /*var $polizaNum = 'polizaIdC';
+                    document.getElementById($polizaNum).value= data[0].dpi;*/
+                    
                 },
                 error : function() {
                     var $pData = $('#patientData');
@@ -37,6 +42,15 @@ $(document).ready(
                 }
             });
 });
+
+
+
+
+
+
+
+
+
 
 
 

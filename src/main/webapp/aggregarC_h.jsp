@@ -27,10 +27,19 @@
             <div class="grid-x align-center-middle">
                 <div class="cell small-10 medium-8">
                     <form class="form" action="AddCita" method="post">
+                        
+                        <input type="hidden" name="dpi" id="patientId" value="">
+                        <input type="hidden" name="id_subcategoria" id="serviceId" value="">
+                        
                         <h4>Nueva Cita</h4>
                         <label>Paciente: 
-                            <select id="patients" name="pId" required>
-                            </select>
+                            <input type="text" name="pId" id="pacienteC" value="" readonly>
+                        </label>
+                        <label>DPI: 
+                            <input type="text" name="dpi" value="<%= request.getParameter("dpi") %>" readonly>
+                        </label>
+                        <label>Servicio: 
+                            <input type="text" name="servicioId" id="serviceName" value="" readonly>
                         </label>
                         <label>Fecha: 
                             <input id="fecha" type="date" name="fechaCita" required>
@@ -38,24 +47,54 @@
                         <label>Doctor / Encargado: 
                             <select id="doctoresData" name="docId" required>
                             </select>
-                        </label>
-                        <label>Servicio: 
-                            <select id="serviciosData" name="servicioId" required>
-                            </select>
-                        </label>
+                        </label>                        
+                                               
                         <label>Hora: 
                             <select id="horariosData" name="hora" required>
                             </select>
                         </label>
                         <br>
                         <input type="submit" class="cell button medium-8" value="Agregar">
+                        
+                        <a class="button expanded" href="citas_h.jsp">Cancelar</a>
+                        
                     </form>
                 </div>
             </div>
         </div>
     </body>
     <script type="text/javascript" src="js/docInf.js"></script>
+    <script type="text/javascript" src="js/clientInfoForCita.js"></script>
     <script type="text/javascript" src="js/horarioInf.js"></script>
     <script type="text/javascript" src="js/serviciosList.js"></script>
-    <script type="text/javascript" src="js/patientsList.js"></script>
+    <script type="text/javascript" src="js/servicioInfo.js"></script>
+    
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
