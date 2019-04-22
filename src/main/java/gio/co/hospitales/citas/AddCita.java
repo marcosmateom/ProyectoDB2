@@ -67,7 +67,6 @@ public class AddCita extends HttpServlet {
             
             String urlHosp;
             int selectHosp = Integer.parseInt(hospitalnume);
-            String urlHosp;
              //CAMBIAR PATHS
             switch (selectHosp){
                 case 1:
