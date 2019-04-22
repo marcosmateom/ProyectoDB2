@@ -64,6 +64,8 @@ public class AddCita extends HttpServlet {
                     append(URLEncoder.encode("servicioId", "UTF-8")).append('=').append(URLEncoder.encode(sId, "UTF-8")).append("&").
                     append(URLEncoder.encode("docId", "UTF-8")).append('=').append(URLEncoder.encode(docId, "UTF-8"));
             // Send data
+            
+            String urlHosp;
             int selectHosp = Integer.parseInt(hospitalnume);
             String urlHosp;
              //CAMBIAR PATHS
