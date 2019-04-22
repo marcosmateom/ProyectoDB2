@@ -64,6 +64,7 @@ public class AddCita extends HttpServlet {
                     append(URLEncoder.encode("servicioId", "UTF-8")).append('=').append(URLEncoder.encode(sId, "UTF-8")).append("&").
                     append(URLEncoder.encode("docId", "UTF-8")).append('=').append(URLEncoder.encode(docId, "UTF-8"));
             // Send data
+<<<<<<< HEAD
             
             String urlHosp;
             int selectHosp = Integer.parseInt(hospitalnume);
@@ -85,6 +86,9 @@ public class AddCita extends HttpServlet {
             }
             
             URL url = new URL(urlHosp);
+=======
+            URL url = new URL("http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita");
+>>>>>>> 41b072578dd6b241d15586be9083eedc35764831
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");

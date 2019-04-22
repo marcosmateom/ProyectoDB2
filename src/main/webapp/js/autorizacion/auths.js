@@ -9,8 +9,6 @@ $(document).ready(
                     $fechaC.append(data[0].fecha);
                     var $hospNum = $('#hospNum');
                     $hospNum.append(data[0].hospital);
-                    var $authNum = $('#authNum');
-                    $authNum.append(data[0]._id);
                     var $citaId = $('#citaId');
                     $citaId.append(data[0].idCita);
                     var $serv = $('#serv');

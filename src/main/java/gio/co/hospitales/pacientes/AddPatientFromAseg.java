@@ -77,6 +77,7 @@ public class AddPatientFromAseg extends HttpServlet {
                     append(URLEncoder.encode("asegNum", "UTF-8")).append('=').append(URLEncoder.encode(asegNum, "UTF-8")).append("&").
                     append(URLEncoder.encode("asegType", "UTF-8")).append('=').append(URLEncoder.encode(asegType, "UTF-8"));
             // Send data
+<<<<<<< HEAD
             
             String urlHosp;
             int selectHosp = Integer.parseInt(hospitalnume);
@@ -110,6 +111,9 @@ public class AddPatientFromAseg extends HttpServlet {
             
           
             URL url = new URL(urlHosp);
+=======
+            URL url = new URL("http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient");
+>>>>>>> 41b072578dd6b241d15586be9083eedc35764831
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");

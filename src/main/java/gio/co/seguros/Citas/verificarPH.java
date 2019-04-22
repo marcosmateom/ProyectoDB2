@@ -68,10 +68,17 @@ public class verificarPH extends HttpServlet {
                         urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 case 2:
+<<<<<<< HEAD
                         urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
                     break;
                 case 3:
                         urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
+=======
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital12/restP/patient/getPatientDPI?dpi="+DPIcliente;
+                    break;
+                case 3:
+                        urlH = "http://localhost:8080/proyectoDB2-Hospital13/restP/patient/getPatientDPI?dpi="+DPIcliente;
+>>>>>>> 41b072578dd6b241d15586be9083eedc35764831
                     break;
                 default:
                         urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
