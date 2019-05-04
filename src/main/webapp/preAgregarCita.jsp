@@ -40,12 +40,6 @@
                             </select>
                         </label>
                     
-                        
-                        <label>Servicio: 
-                            <select id="serviciosData" name="servicioId" required>
-                            </select>
-                        </label>
-                        
                         <label>hospital
                             <select name="hospnum" required>
                                 <option value="1">1</option>
@@ -53,6 +47,13 @@
                                 <option value="3">3</option>
                             </select>
                         </label>
+                        
+                        <label>Servicio: 
+                            <select id="serviciosData" name="servicioId" required>
+                            </select>
+                        </label>
+                        
+                        
                         <br>
                         <input type="submit" class="cell button medium-8" value="Verificar paciente">
                     </form>
@@ -67,6 +68,7 @@
  
     
 </html>
+
 
 
 
