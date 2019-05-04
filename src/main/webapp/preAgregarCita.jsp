@@ -30,15 +30,15 @@
                             <select id="clientes" name="cId" required>
                             </select>
                         </label>
-                        <label>Servicio: 
-                            <select id="serviciosData" name="servicioId" required>
-                            </select>
-                        </label>
                         <label>hospital
                             <select name="hospnum" required>
                                 <option value="1">Hospital Migue</option>
                                 <option value="2">Hospital Abue</option>
                                 <option value="3">Hospital Manu</option>
+                            </select>
+                        </label>
+                        <label>Servicio: 
+                            <select id="serviciosData" name="servicioId" required>
                             </select>
                         </label>
                         <br>

@@ -1,4 +1,4 @@
-function openTabs(evt, hospNum) {
+function openTabs(evt, panel, hospNum) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabs-panels");
   for (i = 0; i < tabcontent.length; i++) {
@@ -8,9 +8,19 @@ function openTabs(evt, hospNum) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(hospNum).style.display = "block";
-  evt.currentTarget.className += " active";
+  document.getElementById(panel).style.display = "block";
+  evt.currentTarget.className += " active";  
+  
+          
 }
+
+
+
+
+
+
+
+
 
 
 

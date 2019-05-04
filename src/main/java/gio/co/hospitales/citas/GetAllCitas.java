@@ -21,7 +21,7 @@ public class GetAllCitas extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO POR PRUEBAS
-    public static String hospitalNum = "2";
+    //public static String hospitalNum = "3";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -93,6 +93,7 @@ public class GetAllCitas extends HttpServlet {
     }
 
 }
+
 
 
 
