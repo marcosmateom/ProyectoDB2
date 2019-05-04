@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
+import gio.co.seguros.getHospIp;
 
 /**
  * Servlet implementation class GetCita
@@ -43,20 +44,13 @@ public class GetDisp extends HttpServlet {
             String fecha = request.getParameter("fecha");
             String docId = request.getParameter("docId");
             String hospN = request.getParameter("hospN");
-            // Construct data
-            StringBuilder dataBuilder = new StringBuilder();
-            dataBuilder.append(URLEncoder.encode("fecha", "UTF-8")).append('=').append(URLEncoder.encode(fecha, "UTF-8")).append("&").
-                    append(URLEncoder.encode("docId", "UTF-8")).append('=').append(URLEncoder.encode(docId, "UTF-8"));
-            // Send data
             
-            URL url = new URL("http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getDisp");
+            // Send data
+            String ipHost = getHospIp.getIP(Integer.parseInt(hospN));
+            URL url = new URL("http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getDisp?fecha="+fecha+"&docId="+docId);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
-            conn.setRequestMethod("GET");
-            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-            wr.write(dataBuilder.toString());
-            wr.flush();
-
+            
             // Get the response
             BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
@@ -64,15 +58,9 @@ public class GetDisp extends HttpServlet {
             while ((line = rd.readLine()) != null) {
                 response2.append(line);
             }
-            JSONObject obj = new JSONObject(response2.toString());
-            int answ = obj.getInt("in");
-
-            if (answ == 1) {
-                response.sendRedirect("http://localhost:8080/proyectoDB2-Hospital1/citas_h.jsp?in=1");
-            } else {
-                response.sendRedirect("http://localhost:8080/proyectoDB2-Hospital1/citas_h.jsp?in=0");
-            }
-            wr.close();
+            //JSONObject obj = new JSONObject(response2.toString());           
+            out.println(response2.toString());
+            
             rd.close();
         } catch (Exception e) {
             System.err.println(e);

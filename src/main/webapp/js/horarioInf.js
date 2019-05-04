@@ -35,12 +35,12 @@ $(document).ready(
 function getHorario() {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getDisp',
+        url: 'http://localhost:8080/proyectoDB2-seguro/GetDisp',
         dataType: 'json',
         data: {
             fecha: getValue('fecha'),
-            docId: getValue('doctoresData')
-
+            docId: getValue('doctoresData'),
+            hospN:  query_string('hosp')
         },
         success: function (data) {
             var $pData = $('#horariosData');
@@ -66,7 +66,6 @@ function getHora() {
         dataType: 'json',
         data: { 
             citaId: query_string('citaId') 
-
         },
         success: function(data) {
             var $fullFecha = data[0].fecha;
