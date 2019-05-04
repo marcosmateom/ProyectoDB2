@@ -17,6 +17,21 @@ function query_string(variable)
    }
    return(false);
 }
+$(document).ready(
+        function () {
+            setTimeout(function() {
+                getHorario();
+                getHora();
+            }, 0600);
+        },
+        document.getElementById('doctoresData').onchange = function () {
+            getHorario();
+            getHora();
+        },
+        document.getElementById('fecha').onchange = function () {
+            getHorario();
+            getHora();
+        });
 function getHorario() {
     $.ajax({
         type: 'GET',
@@ -44,23 +59,6 @@ function getHorario() {
         }
     });
 }
-$(document).ready(
-        function () {
-            setTimeout(function() {
-                getHorario();
-                getHora();
-            }, 0600);
-        },
-        document.getElementById('doctoresData').onchange = function () {
-            getHorario();
-            getHora();
-        },
-        document.getElementById('fecha').onchange = function () {
-            getHorario();
-            getHora();
-        });
-        
-
 function getHora() {
     $.ajax({
         type: 'GET',
@@ -84,11 +82,9 @@ function getHora() {
             }
         },
         error : function() {
-            var $pData = $('#patientData');
+            var $pData = $('#horariosData');
             $pData.empty();
             $pData.append("<tr><td>No hay datos disponibles</td></tr>");
         }
     });
 }
-
-
