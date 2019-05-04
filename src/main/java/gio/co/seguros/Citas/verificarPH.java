@@ -1,5 +1,6 @@
 package gio.co.seguros.Citas;
 
+import gio.co.seguros.getHospIp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -50,38 +51,17 @@ public class verificarPH extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             String urlH, urlAdd, urlCliente;
-            String parDPI = request.getParameter("pId");
+            String parDPI = request.getParameter("cId");
             String parServ = request.getParameter("servicioId");
-            int parHosp = Integer.parseInt(request.getParameter("hospnum"));
-            //parHosp=1;
-            //out.println(hayono);
-            //out.println(parDPI);            
-            //out.println(parServ);
+            int hospN = Integer.parseInt(request.getParameter("hospnum"));
             urlAdd = "http://localhost:8080/proyectoDB2-seguro/AddPatient";
             urlCliente = "http://localhost:8080/proyectoDB2-seguro/restC/cliente/getCliente?dpi="+parDPI;
             
             double DPIcliente = Double.parseDouble(parDPI);
-            //CAMBIAR PATHS AQUI
-            switch (parHosp){
-                case 1:
-                    /*
-                        25.66.75.32:8080
-                        25.65.236.60:8080
-                        25.74.104.162:8080
-                    */
-                        urlH = "http://25.66.75.32:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
-                    break;
-                case 2:
-                        urlH = "http://25.65.236.60:8080/proyectoDB2-Hospital11/restP/patient/getPatientDPI?dpi="+DPIcliente;
-                    break;
-                case 3:
-                        urlH = "http://25.74.104.162:8080/proyectoDB2-Hospital13/restP/patient/getPatientDPI?dpi="+DPIcliente;
-                    break;
-                default:
-                        urlH = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;
-                    break;
-            }
-            
+            //Obtener el ip del hospital objetivo
+            String ipHost = getHospIp.getIP(hospN);
+            //Armar el url del host deseado
+            urlH = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;            
               
             //-----------------------Para obtener el JSON de GetPatient del rest de hospitales-----------------------
             
@@ -121,12 +101,12 @@ public class verificarPH extends HttpServlet {
             {            
             if(respuesta.length()>2){
                 //out.println(respuesta);           
-                response.sendRedirect("aggregarC_h.jsp?dpi="+parDPI+"&hosp="+parHosp+"&servicioId="+parServ);
+                response.sendRedirect("aggregarC_h.jsp?dpi="+parDPI+"&hosp="+hospN+"&servicioId="+parServ);
             } 
             else {
                 //out.println("no existe el men");
                 //out.println(response22);
-                response.sendRedirect("aggregarP_h.jsp?dpi="+parDPI+"&hosp="+parHosp+"&servicioId="+parServ);
+                response.sendRedirect("aggregarP_h.jsp?dpi="+parDPI+"&hosp="+hospN+"&servicioId="+parServ);
                 
                 
                 
