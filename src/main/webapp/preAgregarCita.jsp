@@ -63,12 +63,11 @@
     
     <script src="js/serviciosList.js"></script>
     <script src="js/clienteList.js"></script>
-     <script src="js/docInf.js"></script>
-   
-    <script src="js/citasModInf.js"></script>
-    <script src="js/patientsList.js"></script>
+  
+ 
     
 </html>
+
 
 
 
