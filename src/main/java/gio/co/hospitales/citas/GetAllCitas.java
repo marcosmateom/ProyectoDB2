@@ -1,6 +1,5 @@
 package gio.co.hospitales.citas;
 
-import gio.co.hospitales.pacientes.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -93,6 +92,7 @@ public class GetAllCitas extends HttpServlet {
     }
 
 }
+
 
 
 
