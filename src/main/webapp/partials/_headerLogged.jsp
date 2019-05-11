@@ -17,7 +17,7 @@
         <div class="top-bar-right">
             <ul class="dropdown menu" data-dropdown-menu>
                 <ul class="dropdown menu" data-accordion-menu>
-                    <li><a href="index.jsp">Inicio</a></li>
+                    <li><a href="exitoAdmin.jsp">Inicio</a></li>
                     <li><a><%= user %></a>
                     <li><a href="Logout">Cerrar Sesion</a></li>
                 </ul>
