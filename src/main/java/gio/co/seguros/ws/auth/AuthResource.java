@@ -50,6 +50,28 @@ public class AuthResource {
 
         return authList;
     }
+    
+    @GET
+    @Path("/verify")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response verify(
+            @QueryParam("hospital") int hospNum,
+            @QueryParam("servicio") String serv,
+            @QueryParam("dpi") String dpi) {
+        //Verificar si el cliente tiene seguro y si sí que devuelva el porcentaje
+        String porcentaje = verClienteSeg(dpi);
+        if (!porcentaje.equals("")) {
+            //Verificar si el seguro cubre ese servicio en ese hospital
+            Boolean servHosp = servHospVerify(hospNum, serv);
+            if (servHosp) {
+                return Response.status(200).type(MediaType.APPLICATION_JSON).entity("{\"client\":1,\"serv\":1}").build();
+            } else {
+                return Response.status(200).type(MediaType.APPLICATION_JSON).entity("{\"client\":1,\"serv\":0}").build();
+            }
+        } else {
+            return Response.status(200).type(MediaType.APPLICATION_JSON).entity("{\"client\":0}").build();
+        }
+    }
 
     @POST
     @Path("/addAuth")
@@ -82,7 +104,6 @@ public class AuthResource {
         } else {
             return Response.status(200).type(MediaType.APPLICATION_JSON).entity("{\"client\":0}").build();
         }
-
     }
 
     @PUT

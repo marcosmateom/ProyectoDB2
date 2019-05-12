@@ -1,4 +1,5 @@
-package gio.co.hospitales.citas;
+package gio.co.seguros.Servicios;
+
 
 import gio.co.seguros.getHospIp;
 import java.io.BufferedReader;
@@ -16,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class GetCita
  */
-@WebServlet("/GetAllCitas")
-public class GetAllCitas extends HttpServlet {
+@WebServlet("/HospitalServicio")
+public class HospitalServicio extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO POR PRUEBAS
@@ -26,7 +27,7 @@ public class GetAllCitas extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAllCitas() {
+    public HospitalServicio() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,22 +39,18 @@ public class GetAllCitas extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String urlHosp;
-            String numberH;
+            String url;
+            //String parPId = request.getParameter("pId");
+            String servicioId = request.getParameter("servicioId");
+            String hospN = request.getParameter("hosp");
             
-            numberH = request.getParameter("hospNum");
+            String ipHost = getHospIp.getIP(Integer.parseInt(hospN));
+             
+             
+                url = "http://"+ipHost+":8080/proyectoDB2-Hospital1/rest/servicios/getServicesName?servicioId=" + servicioId;
             
-            
-            
-            //int numberHosp=Integer.parseInt(numberH);
-            
-            String ipHost = getHospIp.getIP(Integer.parseInt(numberH));
-            
-                    urlHosp = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getCita";
-                     
-            
-            
-            URL obj = new URL(urlHosp);
+       
+            URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
@@ -70,33 +67,13 @@ public class GetAllCitas extends HttpServlet {
         }
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-     * response)
-     */
+   
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         doGet(request, response);
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

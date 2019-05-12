@@ -81,6 +81,20 @@
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
+     <servlet>
+        <servlet-name>WS Servicios</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>gio.co.seguros.Servicios</param-value>
+        </init-param>
+        <!-- this is only required if using json -->
+        <init-param>
+                <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+                <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>lista usuarios App</servlet-name>
@@ -103,6 +117,10 @@
         <servlet-name>Rest historial</servlet-name>
         <url-pattern>/restHist/*</url-pattern>
     </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>WS Servicios</servlet-name>
+        <url-pattern>/restS/*</url-pattern>
+    </servlet-mapping>
 </web-app>
 
 

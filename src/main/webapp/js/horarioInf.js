@@ -17,15 +17,30 @@ function query_string(variable)
    }
    return(false);
 }
+$(document).ready(
+        function () {
+            setTimeout(function() {
+                getHorario();
+                getHora();
+            }, 0600);
+        },
+        document.getElementById('doctoresData').onchange = function () {
+            getHorario();
+            getHora();
+        },
+        document.getElementById('fecha').onchange = function () {
+            getHorario();
+            getHora();
+        });
 function getHorario() {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getDisp',
+        url: 'http://localhost:8080/proyectoDB2-seguro/GetDisp',
         dataType: 'json',
         data: {
             fecha: getValue('fecha'),
-            docId: getValue('doctoresData')
-
+            docId: getValue('doctoresData'),
+            hospN:  query_string('hosp')
         },
         success: function (data) {
             var $pData = $('#horariosData');
@@ -44,31 +59,14 @@ function getHorario() {
         }
     });
 }
-$(document).ready(
-        function () {
-            setTimeout(function() {
-                getHorario();
-                getHora();
-            }, 0600);
-        },
-        document.getElementById('doctoresData').onchange = function () {
-            getHorario();
-            getHora();
-        },
-        document.getElementById('fecha').onchange = function () {
-            getHorario();
-            getHora();
-        });
-        
-
 function getHora() {
     $.ajax({
         type: 'GET',
         url: 'http://localhost:8080/proyectoDB2-seguro/GetCita',
         dataType: 'json',
         data: { 
-            citaId: query_string('citaId') 
-
+            citaId: query_string('citaId')
+            //,hosp: query_string('hosp')
         },
         success: function(data) {
             var $fullFecha = data[0].fecha;
@@ -84,11 +82,13 @@ function getHora() {
             }
         },
         error : function() {
-            var $pData = $('#patientData');
+            var $pData = $('#horariosData');
             $pData.empty();
             $pData.append("<tr><td>No hay datos disponibles</td></tr>");
         }
     });
 }
+
+
 
 

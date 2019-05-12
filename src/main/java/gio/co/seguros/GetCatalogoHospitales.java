@@ -1,6 +1,10 @@
-package gio.co.hospitales.citas;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package gio.co.seguros;
 
-import gio.co.seguros.getHospIp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,25 +16,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
- * Servlet implementation class GetCita
+ *
+ * @author C.V
  */
-@WebServlet("/GetAllCitas")
-public class GetAllCitas extends HttpServlet {
 
-    private static final long serialVersionUID = 1L;
-    //CAMBIADO POR PRUEBAS
-    //public static String hospitalNum = "3";
+@WebServlet("/GetCatalogoHospitales")
 
+public class GetCatalogoHospitales extends HttpServlet {
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAllCitas() {
+    public GetCatalogoHospitales() {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
     // Generar jsons
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Response info
@@ -38,22 +43,10 @@ public class GetAllCitas extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String urlHosp;
-            String numberH;
-            
-            numberH = request.getParameter("hospNum");
             
             
-            
-            //int numberHosp=Integer.parseInt(numberH);
-            
-            String ipHost = getHospIp.getIP(Integer.parseInt(numberH));
-            
-                    urlHosp = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getCita";
-                     
-            
-            
-            URL obj = new URL(urlHosp);
+            String url = "http://25.74.104.162:8080/proyectoDB2-seguro/restS/servicios/getServicios";
+            URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
@@ -63,52 +56,17 @@ public class GetAllCitas extends HttpServlet {
                 response2.append(inputLine);
             }
             in.close();
-            //print in String
-            out.println(response2.toString());
+            JSONArray servicios = new JSONArray(response2.toString());
+                              
+            int nah = servicios.length();
+            out.println(nah);
+         
         } catch (Exception e) {
             System.err.println(e);
-        }
-    }
+        }  }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-     * response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         doGet(request, response);
     }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ }

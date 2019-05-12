@@ -1,4 +1,4 @@
-package gio.co.hospitales.citas;
+package gio.co.hospitales.pacientes;
 
 import gio.co.seguros.getHospIp;
 import java.io.BufferedReader;
@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class GetCita
+ * Servlet implementation class GetPatient
  */
-@WebServlet("/GetAllCitas")
-public class GetAllCitas extends HttpServlet {
+@WebServlet("/GetPatientDPI")
+public class GetPatientDPI extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO POR PRUEBAS
@@ -26,7 +26,7 @@ public class GetAllCitas extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAllCitas() {
+    public GetPatientDPI() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,23 +37,21 @@ public class GetAllCitas extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
+        String hospN = request.getParameter("hosp");
+        
+       
         try {
-            String urlHosp;
-            String numberH;
-            
-            numberH = request.getParameter("hospNum");
-            
-            
-            
-            //int numberHosp=Integer.parseInt(numberH);
-            
-            String ipHost = getHospIp.getIP(Integer.parseInt(numberH));
-            
-                    urlHosp = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getCita";
-                     
-            
-            
-            URL obj = new URL(urlHosp);
+            String url;
+            String ipHost = getHospIp.getIP(Integer.parseInt(hospN));
+            String parPId = request.getParameter("dpi");
+            if ((parPId != null) && !(parPId.equals(""))) {
+                //int pId = Integer.parseInt(request.getParameter("pId"));
+                
+                url = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi=" + parPId;
+            } else {
+                url = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI";
+            }
+            URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
@@ -80,25 +78,6 @@ public class GetAllCitas extends HttpServlet {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

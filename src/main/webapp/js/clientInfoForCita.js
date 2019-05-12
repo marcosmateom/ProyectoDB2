@@ -22,10 +22,11 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI',
+                url: 'http://localhost:8080/proyectoDB2-seguro/GetPatientDPI',
                 dataType: 'json',
                 data: { 
-                    dpi: query_string('dpi') 
+                    dpi: query_string('dpi'),
+                    hosp: query_string('hosp') 
                 },
                 success: function(data) {
                     
@@ -45,6 +46,9 @@ $(document).ready(
                 }
             });
 });
+
+
+
 
 
 

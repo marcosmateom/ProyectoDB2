@@ -1,5 +1,6 @@
 package gio.co.hospitales.pacientes;
 
+import gio.co.seguros.getHospIp;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -79,24 +80,13 @@ public class AddPatientFromAseg extends HttpServlet {
             // Send data
             
             String urlHosp;
-            int selectHosp = Integer.parseInt(hospitalnume);
+            //int selectHosp = Integer.parseInt(hospitalnume);
             
+            String ipHost = getHospIp.getIP(Integer.parseInt(hospitalnume));
               //CAMBIAR PATHS
-            switch (selectHosp){
-                case 1:
-                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient";
-                    break;
-                case 2:
-                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient";
-                    break;
-                case 3:
-                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient";
-                    break;
-                default:
-                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/addPatient";
-                    break;
-            }
-            
+          
+                        urlHosp = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restP/patient/addPatient";
+                
             
           
             URL url = new URL(urlHosp);
@@ -130,7 +120,7 @@ public class AddPatientFromAseg extends HttpServlet {
         }
     }
 
-    protected void getInfoCookies(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    /*protected void getInfoCookies(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Cookie[] cookiesInf = request.getCookies();
         if (cookiesInf != null) {
             for (Cookie cookie : cookiesInf) {
@@ -139,8 +129,13 @@ public class AddPatientFromAseg extends HttpServlet {
                 }
             }
         }
-    }
+    }*/
 }
+
+
+
+
+
 
 
 

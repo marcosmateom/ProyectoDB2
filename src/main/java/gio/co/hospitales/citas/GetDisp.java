@@ -1,6 +1,5 @@
 package gio.co.hospitales.citas;
 
-import gio.co.seguros.getHospIp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,12 +11,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import gio.co.seguros.getHospIp;
 
 /**
  * Servlet implementation class GetCita
  */
-@WebServlet("/GetAllCitas")
-public class GetAllCitas extends HttpServlet {
+@WebServlet("/GetDisp")
+public class GetDisp extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO POR PRUEBAS
@@ -26,7 +26,7 @@ public class GetAllCitas extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAllCitas() {
+    public GetDisp() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,33 +38,27 @@ public class GetAllCitas extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String urlHosp;
-            String numberH;
+            String fecha = request.getParameter("fecha");
+            String docId = request.getParameter("docId");
+            String hospN = request.getParameter("hospN");
             
-            numberH = request.getParameter("hospNum");
+            // Send data
+            String ipHost = getHospIp.getIP(Integer.parseInt(hospN));
+            URL url = new URL("http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getDisp?fecha="+fecha+"&docId="+docId);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setDoOutput(true);
             
-            
-            
-            //int numberHosp=Integer.parseInt(numberH);
-            
-            String ipHost = getHospIp.getIP(Integer.parseInt(numberH));
-            
-                    urlHosp = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getCita";
-                     
-            
-            
-            URL obj = new URL(urlHosp);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            BufferedReader in = new BufferedReader(
-                    new InputStreamReader(con.getInputStream()));
-            String inputLine;
+            // Get the response
+            BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String line;
             StringBuffer response2 = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response2.append(inputLine);
+            while ((line = rd.readLine()) != null) {
+                response2.append(line);
             }
-            in.close();
-            //print in String
+            //JSONObject obj = new JSONObject(response2.toString());           
             out.println(response2.toString());
+            
+            rd.close();
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -80,35 +74,6 @@ public class GetAllCitas extends HttpServlet {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
