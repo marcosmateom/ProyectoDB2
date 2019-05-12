@@ -17,6 +17,8 @@ import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.ws.rs.POST;
@@ -28,6 +30,7 @@ import javax.ws.rs.core.MediaType;
 import org.bson.Document;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.Response;
+import org.bson.conversions.Bson;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -48,13 +51,14 @@ public class AuthResource {
             @QueryParam("dpi") String dpi,
             @QueryParam("idAuth") int idAuth,
             @QueryParam("hospNum") int hospNum,
-            @QueryParam("idCita") int idCita) {
+            @QueryParam("fecha") String fecha,
+            @QueryParam("idCita") int idCita) throws ParseException {
         //Obtener # del hospital
-        makeList(dpi, idAuth, idCita,hospNum);
+        makeList(dpi, idAuth, idCita, hospNum, fecha);
 
         return authList;
     }
-    
+
     @GET
     @Path("/verify")
     @Produces(MediaType.APPLICATION_JSON)
@@ -64,7 +68,7 @@ public class AuthResource {
             @QueryParam("dpi") String dpi) {
         //Verificar si el cliente tiene seguro y si sí que devuelva el porcentaje
         double porcentaje = verClienteSeg(dpi);
-        if (porcentaje !=0) {
+        if (porcentaje != 0) {
             //Verificar si el seguro cubre ese servicio en ese hospital
             Boolean servHosp = servHospVerify(hospNum, serv);
             if (servHosp) {
@@ -136,7 +140,17 @@ public class AuthResource {
         }
     }
 
-    protected void makeList(String dpi, int idAuth, int idCita,int hospNum) {
+    protected void makeList(String dpi, int idAuth, int idCita, int hospNum, String fecha) throws ParseException {
+        Date fechaDate = new SimpleDateFormat("yyyy-MM").parse(fecha);
+        String fechaParam = new SimpleDateFormat("yyyy-MM").format(fechaDate).toString();
+        //Buscar el siguiente mes
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(fechaDate);
+        int firstDay = cal.getActualMinimum(Calendar.DATE);
+        int lastDay = cal.getActualMaximum(Calendar.DATE);
+        //Siguiente mes
+        Date fechaDate2 = cal.getTime();
+        String fechaParam2 = new SimpleDateFormat("yyyy-MM").format(fechaDate2).toString();
         try {
             //Conexion mongo
             MongoCollection<Document> coll = CollAuth.collAuth();
@@ -151,6 +165,26 @@ public class AuthResource {
                 searchQuery.append("idCita", idCita);
                 searchQuery.append("hospital", hospNum);
                 auths = (List<Document>) coll.find(searchQuery).into(new ArrayList<Document>());
+            } else if (!fecha.equals("")) {
+                List<? extends Bson> pipeline = Arrays.asList(
+                        new Document()
+                                .append("$match", new Document()
+                                        .append("fecha", new Document()
+                                                .append("$gte", new SimpleDateFormat("yyyy-MM-dd").parse(fechaParam + "-" + firstDay))
+                                                .append("$lt", new SimpleDateFormat("yyyy-MM-dd").parse(fechaParam2 + "-" + lastDay))
+                                        )
+                                ), 
+                    new Document()
+                            .append("$project", new Document()
+                                    .append("hospital", 1).append("fecha", new Document()
+                                            .append("$dateToString", new Document()
+                                                    .append("format", "%G-%m-%d")
+                                                    .append("date", "$fecha")
+                                            )
+                                    ).append("servicio",1).append("estado",1).append("dpi",1)
+                                    .append("monto",1).append("porcentaje",1).append("idCita",1)
+                ));
+                auths = (List<Document>) coll.aggregate(pipeline).allowDiskUse(false).into(new ArrayList<Document>());
             } else {
                 //Jalar todas las autorizaciones
                 auths = (List<Document>) coll.find().into(new ArrayList<Document>());
@@ -165,7 +199,7 @@ public class AuthResource {
         MongoCollection<Document> coll = CollAuth.collAuth();
         try {
             int id = 0;
-            Date fechaDate =new SimpleDateFormat("yyyy-MM-dd").parse(fechaCita);
+            Date fechaDate = new SimpleDateFormat("yyyy-MM-dd").parse(fechaCita);
             //Encontrar el ID del ultimo documento
             List<Document> _idNum;
             int limit = 1;
@@ -276,7 +310,7 @@ public class AuthResource {
             if (!porcentajeS.equals("")) {
                 porcentajeS = porcentajeS.substring(0, porcentajeS.length() - 1);
                 porcentaje = Double.parseDouble(porcentajeS);
-                porcentaje = porcentaje/100;
+                porcentaje = porcentaje / 100;
                 return porcentaje;
             } else {
                 return porcentaje = 0;
@@ -287,8 +321,3 @@ public class AuthResource {
         }
     }
 }
-
-
-
-
-
