@@ -35,7 +35,7 @@ $(document).ready(
 function getHorario() {
     $.ajax({
         type: 'GET',
-        url: 'http://25.74.104.162:8080/proyectoDB2-seguro/GetDisp',
+        url: 'http://localhost:8080/proyectoDB2-seguro/GetDisp',
         dataType: 'json',
         data: {
             fecha: getValue('fecha'),
@@ -62,7 +62,7 @@ function getHorario() {
 function getHora() {
     $.ajax({
         type: 'GET',
-        url: 'http://25.74.104.162:8080/proyectoDB2-seguro/GetCita',
+        url: 'http://localhost:8080/proyectoDB2-seguro/GetCita',
         dataType: 'json',
         data: { 
             citaId: query_string('citaId')
@@ -88,6 +88,7 @@ function getHora() {
         }
     });
 }
+
 
 
 
