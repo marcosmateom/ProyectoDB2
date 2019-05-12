@@ -20,8 +20,10 @@ C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\Poliza\PolizaResource.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\nuevoCliente.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\collClientes.java
+C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\ws\historial\HistorialResource.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\eliminarPoliza.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\pacientes\DeletePatient.java
+C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\ws\historial\CollHistorial.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\modificarCliente.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\seguros\Servicios\ServiciosResource.java
 C:\Users\C.V\Documents\NetBeansProjects\proyectoDB2-seguros\src\main\java\gio\co\hospitales\GetServicios.java
