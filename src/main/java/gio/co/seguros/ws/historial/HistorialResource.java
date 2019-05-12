@@ -52,11 +52,13 @@ public class HistorialResource {
             @QueryParam("dpi") String dpi,
             @QueryParam("categoria") String categoria,
             @QueryParam("subcat") String subcat,
+            @QueryParam("nCliente") String nombre,
+            @QueryParam("aCliente") String apellido,
             @QueryParam("idCita") int idCita) {
         
         //LLamar al metodo para insertar historial
         Boolean answ;
-        answ = addNewHist(hospNum, fechaCita, doctor, diagnostico, resultados, medicinas, pasos, observaciones, dpi, categoria, subcat, idCita);
+        answ = addNewHist(hospNum, fechaCita, doctor, diagnostico, resultados, medicinas, pasos, observaciones, dpi, categoria, subcat, idCita, nombre, apellido);
         if (answ) {
             return Response.status(200).type(MediaType.APPLICATION_JSON).entity("{\"in\":1}").build();
         } else {
@@ -79,6 +81,7 @@ public class HistorialResource {
                 //Get del numero de hospital en el documento
                 //String a = hists.get(i).getString("hospital");
                 int s = hists.get(i).getInteger("hospital");
+                String a ="a";
                 //validacion de si la cita fue hecha en el hospital que solisita historiales
                 if (s != hospital){
                     listaF.add(hists.get(i));
@@ -90,7 +93,7 @@ public class HistorialResource {
         }
     }
     
-    private Boolean addNewHist(int hospNum, String fechaCita, String doctor, String diagnostico, String resultados, String medicinas, String pasos, String observaciones, String dpi, String categoria, String subcat, int idCita) {        
+    private Boolean addNewHist(int hospNum, String fechaCita, String doctor, String diagnostico, String resultados, String medicinas, String pasos, String observaciones, String dpi, String categoria, String subcat, int idCita, String nombre, String apellido) {        
         MongoCollection<Document> coll = CollHistorial.collHistorial();
         try {
             int id = 0;
@@ -115,7 +118,10 @@ public class HistorialResource {
                     .append("dpi", dpi)
                     .append("categoria", categoria)
                     .append("subcat", subcat)
-                    .append("_id", id + 1);
+                    .append("_id", id + 1)
+                    .append("nombre", nombre)
+                    .append("apellido", apellido)
+                    ;
             coll.insertOne(doc);
             return true;
         } catch (MongoException | ClassCastException e) {
@@ -124,6 +130,9 @@ public class HistorialResource {
         }
     }
 }
+
+
+
 
 
 
