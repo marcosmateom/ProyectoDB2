@@ -1,5 +1,6 @@
 package gio.co.hospitales.pacientes;
 
+import gio.co.seguros.getHospIp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,17 +16,17 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class GetPatient
  */
-@WebServlet("/GetPatient")
-public class GetPatient extends HttpServlet {
+@WebServlet("/GetPatientDPI")
+public class GetPatientDPI extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO POR PRUEBAS
-    public static String hospitalNum = "3";
+    //public static String hospitalNum = "3";
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetPatient() {
+    public GetPatientDPI() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,14 +37,19 @@ public class GetPatient extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
+        String hospN = request.getParameter("hosp");
+        
+       
         try {
             String url;
-            String parPId = request.getParameter("pId");
+            String ipHost = getHospIp.getIP(Integer.parseInt(hospN));
+            String parPId = request.getParameter("dpi");
             if ((parPId != null) && !(parPId.equals(""))) {
-                int pId = Integer.parseInt(request.getParameter("pId"));
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatient?pId=" + pId;
+                //int pId = Integer.parseInt(request.getParameter("pId"));
+                
+                url = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi=" + parPId;
             } else {
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restP/patient/getPatient";
+                url = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI";
             }
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -72,6 +78,16 @@ public class GetPatient extends HttpServlet {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

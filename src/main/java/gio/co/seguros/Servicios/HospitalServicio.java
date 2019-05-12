@@ -1,6 +1,7 @@
-package gio.co.hospitales.citas;
+package gio.co.seguros.Servicios;
 
-import gio.co.hospitales.pacientes.*;
+
+import gio.co.seguros.getHospIp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,17 +17,17 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class GetCita
  */
-@WebServlet("/GetCita")
-public class GetCita extends HttpServlet {
+@WebServlet("/HospitalServicio")
+public class HospitalServicio extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO POR PRUEBAS
-    public static String hospitalNum = "3";
+    //public static String hospitalNum = "3";
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetCita() {
+    public HospitalServicio() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,17 +40,16 @@ public class GetCita extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             String url;
-            String parPId = request.getParameter("pId");
-            String parCitaId = request.getParameter("citaId");
-            if (((parPId != null) && !(parPId.equals("")))) {
-                int pId = Integer.parseInt(parPId);
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita?pId=" + pId;
-            } else if (((parCitaId != null) && !(parCitaId.equals("")))) {
-                int citaId = Integer.parseInt(parCitaId);
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita?citaId=" + citaId;
-            } else {
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita";
-            }
+            //String parPId = request.getParameter("pId");
+            String servicioId = request.getParameter("servicioId");
+            String hospN = request.getParameter("hosp");
+            
+            String ipHost = getHospIp.getIP(Integer.parseInt(hospN));
+             
+             
+                url = "http://"+ipHost+":8080/proyectoDB2-Hospital1/rest/servicios/getServicesName?servicioId=" + servicioId;
+            
+       
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             BufferedReader in = new BufferedReader(
@@ -67,15 +67,25 @@ public class GetCita extends HttpServlet {
         }
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-     * response)
-     */
+   
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         doGet(request, response);
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,6 +1,7 @@
 package gio.co.hospitales.citas;
 
 import gio.co.hospitales.pacientes.*;
+import gio.co.seguros.getHospIp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,7 +22,7 @@ public class GetCita extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     //CAMBIADO POR PRUEBAS
-    public static String hospitalNum = "3";
+    //public static String hospitalNum = "3";
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -41,14 +42,19 @@ public class GetCita extends HttpServlet {
             String url;
             String parPId = request.getParameter("pId");
             String parCitaId = request.getParameter("citaId");
+            String hospN = request.getParameter("hosp");
+            
+             String ipHost = getHospIp.getIP(Integer.parseInt(hospN));
+             
+             
             if (((parPId != null) && !(parPId.equals("")))) {
                 int pId = Integer.parseInt(parPId);
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita?pId=" + pId;
+                url = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getCita?pId=" + pId;
             } else if (((parCitaId != null) && !(parCitaId.equals("")))) {
                 int citaId = Integer.parseInt(parCitaId);
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita?citaId=" + citaId;
+                url = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getCita?citaId=" + citaId;
             } else {
-                url = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/getCita";
+                url = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getCita";
             }
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -77,5 +83,8 @@ public class GetCita extends HttpServlet {
     }
 
 }
+
+
+
 
 

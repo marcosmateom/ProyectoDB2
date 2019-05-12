@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gio.co.seguros;
+package gio.co.seguros.Servicios;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,14 +24,14 @@ import org.json.JSONObject;
  * @author C.V
  */
 
-@WebServlet("/GetCatalogoHospitales")
+@WebServlet("/GetHospitales")
 
-public class GetCatalogoHospitales extends HttpServlet {
+public class GetHospitales extends HttpServlet {
     
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetCatalogoHospitales() {
+    public GetHospitales() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,7 +44,11 @@ public class GetCatalogoHospitales extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            
+            //String hosp = request.getParameter("hospnum");
+            //String hospcan = request.getParameter("hospcan");
+            String hospname;
+            //int hospNum = Integer.parseInt(hosp);
+            int numero;
             String url = "http://25.74.104.162:8080/proyectoDB2-seguro/restS/servicios/getServicios";
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -56,17 +60,91 @@ public class GetCatalogoHospitales extends HttpServlet {
                 response2.append(inputLine);
             }
             in.close();
-            JSONArray servicios = new JSONArray(response2.toString());
-                              
-            int nah = servicios.length();
-            out.println(nah);
-         
+            JSONArray hospis = new JSONArray(response2.toString());
+            
+            int n = hospis.length();
+            
+                       
+            
+            JSONArray list = new JSONArray();
+                for(int i = 0; i<n; i++){
+                JSONObject hospitales = hospis.getJSONObject(i);
+                //out.println(hospitales);
+                
+                
+                JSONObject jo = hospis.getJSONObject(i);
+                if(jo.optString("hospital")!= ""){
+                
+                    hospname = jo.getString("hospital");
+                                    
+                    //out.println(hospname);
+                    jo.put("hospital", hospname);
+                    list.put(jo);
+                    //JSONArray array_hospitales = hospis.getJSONArray("hospital");
+                    //out.println(array_hospitales);
+                    //list.put(jo);
+                    //hospname = "";
+                }
+                }                                   
+            
+            out.println(list);
+            
+   
         } catch (Exception e) {
             System.err.println(e);
-        }  }
+        }
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         doGet(request, response);
     }
- }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

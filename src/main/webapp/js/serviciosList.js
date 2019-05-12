@@ -2,7 +2,8 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://25.74.104.162:8080/proyectoDB2-seguro/getServicios',
+                /*cambiar esto*/
+                url: 'http://25.74.104.162:8080/proyectoDB2-seguro/restS/servicios/getServicios',
                 dataType: 'json',
                 success: function(data) {
                     var $pData = $('#serviciosData');
@@ -21,5 +22,7 @@ $(document).ready(
                 }
             });
 });
+
+
 
 

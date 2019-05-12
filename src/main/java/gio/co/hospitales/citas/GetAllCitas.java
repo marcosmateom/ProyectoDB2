@@ -1,5 +1,6 @@
 package gio.co.hospitales.citas;
 
+import gio.co.seguros.getHospIp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -37,33 +38,20 @@ public class GetAllCitas extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String urlHosp, numberH;
+            String urlHosp;
+            String numberH;
             
             numberH = request.getParameter("hospNum");
             
             
             
-            int numberHosp=Integer.parseInt(numberH);
+            //int numberHosp=Integer.parseInt(numberH);
             
-            switch(numberHosp){
-                case 1:
-                    
-                    /*
-                    25.66.75.32:8080
-                    */
-                    urlHosp = "http://25.66.75.32:8080/proyectoDB2-Hospital1/restC/cita/getCita";
-                break;
-                case 2:
-                    urlHosp = "http://25.65.236.60:8080/proyectoDB2-Hospital1/restC/cita/getCita";
-                break;
-                case 3:
-                    urlHosp = "http://25.74.104.162:8080/proyectoDB2-Hospital1/restC/cita/getCita";
-                break;     
-                default:
-                    urlHosp = "http://25.66.75.32:8080/proyectoDB2-Hospital1/restC/cita/getCita";
-                break;
-                                        
-            }
+            String ipHost = getHospIp.getIP(Integer.parseInt(numberH));
+            
+                    urlHosp = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/getCita";
+                     
+            
             
             URL obj = new URL(urlHosp);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -92,6 +80,13 @@ public class GetAllCitas extends HttpServlet {
     }
 
 }
+
+
+
+
+
+
+
 
 
 

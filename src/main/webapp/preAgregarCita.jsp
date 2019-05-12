@@ -31,10 +31,8 @@
                             </select>
                         </label>
                         <label>hospital
-                            <select name="hospnum" required>
-                                <option value="1">Hospital Migue</option>
-                                <option value="2">Hospital Abue</option>
-                                <option value="3">Hospital Manu</option>
+                            <select name="hospnum" id="hospnum" required>
+                               
                             </select>
                         </label>
                         <label>Servicio: 
@@ -48,9 +46,13 @@
             </div>
         </div>
     </body>
-    <script src="js/serviciosList.js"></script>
+    <script src="js/serviceInf.js"></script>
     <script src="js/clienteList.js"></script>
-    <script src="js/docInf.js"></script>
-    <script src="js/citasModInf.js"></script>
-    <script src="js/patientsList.js"></script>
+    <script src="js/hospitalesCant.js"></script>
+    
 </html>
+
+
+
+
+
