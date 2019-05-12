@@ -40,7 +40,37 @@ public class CoberturaS extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter out = response.getWriter();
+		response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                String hospNo, servicio;
+                hospNo = request.getParameter("hospNo").toString();
+                //hospNo = "1";
+                //servicio = "Sangre";
+                servicio = request.getParameter("servicio").toString();		/*try {*/
+			MongoCollection<Document> coll = gio.co.seguros.collServicios.collservicios();
+                        try {
+                            List<Document> coberturas = (List<Document>) coll.find(new BasicDBObject("hospital", hospNo)).into( new ArrayList<Document>());
+                            int index = coberturas.size();
+                            Document doc = coberturas.get(0);
+                            List<Document> servicios = (List<Document>) doc.get("servicios");
+                            String res = "false";
+                            String[] stringArray = servicios.toArray(new String[0]);
+                            String a = "a";
+                            int i =0;
+                            String servi = "";
+                            JSONObject resp= new JSONObject(coberturas);
+
+                            out.println(resp.toString());
+                            a="h";
+                            //request.setAttribute("res", res);
+                            //RequestDispatcher rd = request.getRequestDispatcher("p.jsp");
+                            //rd.forward(request, response);
+                            
+                        
+                        } catch(MongoException | ClassCastException e){
+                            e.printStackTrace();
+                        }
 	}
         
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -86,5 +116,9 @@ public class CoberturaS extends HttpServlet {
 	}
     
 }
+
+
+
+
 
 
