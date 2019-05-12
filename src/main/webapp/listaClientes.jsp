@@ -15,29 +15,31 @@
     </jsp:include>
     <%@ include file="partials/_headerLogged.jsp"%>
     <!--navbar logged-->
-
     <body>
-        <h1>Listado de Clientes</h1>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>tipo de poliza</th>
-                    <th>nombre</th>
-                    <th>apellido</th>
-                    <th>telefono</th>
-                    <th>Correo</th>
-                    <th>Documento de identificacion</th>
-                    <th>Contacto de emergencia</th>
-                    <th>Telefono del contacto de emergencia</th>
-                    <th>Acciones</th>
-                    
-                </tr>
-            </thead>
-            <tbody id="datosClientes">
-            </tbody>
-        </table>
-        
+        <div class="grid-container">
+            <div class="grid-x align-center">
+                <div class="cell small-10 medium-12">
+                    <h1>Listado de Clientes</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de poliza</th>
+                                <th>Nombre</th>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                                <th>Documento de identificacion</th>
+                                <th>Contacto de emergencia</th>
+                                <th>Telefono del contacto</th>
+                                <th>Acciones</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="datosClientes">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </body>
     <script src="js/Clientes.js"></script>
 </html>

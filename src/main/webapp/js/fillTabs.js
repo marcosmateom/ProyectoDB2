@@ -15,7 +15,16 @@ function openTabs(evt, panel, hospNum) {
     }
     llamar();
 }
-
+function query_string(variable)
+{
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i=0;i<vars.length;i++) {
+           var pair = vars[i].split("=");
+           if(pair[0] == variable){return pair[1];}
+   }
+   return(false);
+}
 function getData(hospNum) {
     $.ajax({
         type: 'GET',
@@ -27,7 +36,7 @@ function getData(hospNum) {
             $pData.empty();
             for (var i = 0; i < data.length; i++) {
                 //$pData.append("<tr><td>"+data[i].id+"</td><td>"+data[i].cat+"</td><td>"+data[i].docName+" "+data[i].docLastName+"</td><td>"+data[i].pName+" "+data[i].pLastName+"</td><td>"+data[i].fecha+"</td><td><a class=\"button\" href=\"cita_h.jsp?citaId="+data[i].id+"&pId="+data[i].pId+"\">Ver detalles</a> <a class=\"button\" href=\"deleteC_h.jsp?citaId="+data[i].id+"\">Eliminar Cita</a></td></tr>");
-                $pData.append("<tr><td>" + data[i].id + "</td><td>" + data[i].cat + "</td><td>" + data[i].docName + " " + data[i].docLastName + "</td><td>" + data[i].pName + " " + data[i].pLastName + "</td><td>" + data[i].fecha + "</td><td><a class=\"button\" href=\"cita_h.jsp?citaId=" + data[i].id + "&pId=" + data[i].pId + "\">Ver detalles</a></td></tr>");
+                $pData.append("<tr><td>" + data[i].id + "</td><td>" + data[i].cat + "</td><td>" + data[i].docName + " " + data[i].docLastName + "</td><td>" + data[i].pName + " " + data[i].pLastName + "</td><td>" + data[i].fecha + "</td><td><a class=\"button\" href=\"cita_h.jsp?citaId=" + data[i].id + "&pId=" + data[i].pId +"&hosp="+query_string('hosp') + "\">Ver detalles</a></td></tr>");
             }
             if (data.length == 0) {
                 $pData.append("<p>No hay datos disponibles</p>");

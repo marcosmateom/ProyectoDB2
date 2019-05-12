@@ -12,22 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.*;
-import java.io.File;
-import java.net.URI;
-import javax.ws.rs.core.Response;
-/*import com.google.gson.GsonBuilder;*/
-
-
 
 /**
  * Servlet implementation class GetPatient
  */
-
-
-                
-
-
 @WebServlet("/verificarPH")
 public class verificarPH extends HttpServlet {
 
@@ -55,18 +43,17 @@ public class verificarPH extends HttpServlet {
             String parServ = request.getParameter("servicioId");
             int hospN = Integer.parseInt(request.getParameter("hospnum"));
             urlAdd = "http://localhost:8080/proyectoDB2-seguro/AddPatient";
-            urlCliente = "http://localhost:8080/proyectoDB2-seguro/restC/cliente/getCliente?dpi="+parDPI;
-            
+            urlCliente = "http://localhost:8080/proyectoDB2-seguro/restC/cliente/getCliente?dpi=" + parDPI;
+
             double DPIcliente = Double.parseDouble(parDPI);
             //Obtener el ip del hospital objetivo
             String ipHost = getHospIp.getIP(hospN);
             //Armar el url del host deseado
-            urlH = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi="+DPIcliente;            
-              
+            urlH = "http://" + ipHost + ":8080/proyectoDB2-Hospital1/restP/patient/getPatientDPI?dpi=" + DPIcliente;
+
             //-----------------------Para obtener el JSON de GetPatient del rest de hospitales-----------------------
-            
             URL obj = new URL(urlH);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();           
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             int responseCode = con.getResponseCode();
             //out.println("Response code: "+responseCode);            
             BufferedReader in = new BufferedReader(
@@ -75,15 +62,15 @@ public class verificarPH extends HttpServlet {
             String inputLine;
             StringBuffer response2 = new StringBuffer();
             while ((inputLine = in.readLine()) != null) {
-               
-                response2.append(inputLine); 
-            }          
-            
-            String respuesta = response2.toString(); 
-            
+
+                response2.append(inputLine);
+            }
+
+            String respuesta = response2.toString();
+
             //-----------------------Para obtener el JSON de clientes de la aseguradora-----------------------
             URL obj2 = new URL(urlCliente);
-            HttpURLConnection con2 = (HttpURLConnection) obj2.openConnection();           
+            HttpURLConnection con2 = (HttpURLConnection) obj2.openConnection();
             int responseCode2 = con2.getResponseCode();
             //out.println("Response code: "+responseCode);            
             BufferedReader in2 = new BufferedReader(
@@ -92,297 +79,25 @@ public class verificarPH extends HttpServlet {
             String inputLine2;
             StringBuffer response22 = new StringBuffer();
             while ((inputLine2 = in2.readLine()) != null) {
-               
-                response22.append(inputLine2); 
-            }          
-            
-            String respuesta2 = response22.toString();
-            
-            {            
-            if(respuesta.length()>2){
-                //out.println(respuesta);           
-                response.sendRedirect("aggregarC_h.jsp?dpi="+parDPI+"&hosp="+hospN+"&servicioId="+parServ);
-            } 
-            else {
-                //out.println("no existe el men");
-                //out.println(response22);
-                response.sendRedirect("aggregarP_h.jsp?dpi="+parDPI+"&hosp="+hospN+"&servicioId="+parServ);
-                
-                
-                
-                
+
+                response22.append(inputLine2);
             }
+            String respuesta2 = response22.toString();
+
+            {
+                if (respuesta.length() > 2) {
+                    //out.println(respuesta);           
+                    response.sendRedirect("aggregarC_h.jsp?dpi=" + parDPI + "&hosp=" + hospN + "&servicioId=" + parServ);
+                } else {
+                    //out.println("no existe el men");
+                    //out.println(response22);
+                    response.sendRedirect("aggregarP_h.jsp?dpi=" + parDPI + "&hosp=" + hospN + "&servicioId=" + parServ);
+                }
             }
             in.close();
-           
-            
-            
-            
-            
         } catch (Exception e) {
             System.err.println(e);
         }
     }
-    
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

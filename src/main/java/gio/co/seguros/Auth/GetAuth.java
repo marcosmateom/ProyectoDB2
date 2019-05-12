@@ -1,6 +1,15 @@
-package gio.co.hospitales.citas;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package gio.co.seguros.Auth;
 
-import gio.co.seguros.getHospIp;
+/**
+ *
+ * @author migue
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,19 +23,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class GetCita
+ * Servlet implementation class GetAuth
  */
-@WebServlet("/GetCita")
-public class GetCita extends HttpServlet {
+@WebServlet("/GetAuth")
+public class GetAuth extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    //CAMBIADO POR PRUEBAS
-    //public static String hospitalNum = "3";
+    public static String hospitalNum = "2";
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetCita() {
+    public GetAuth() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,20 +47,18 @@ public class GetCita extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             String url;
-            String parPId = request.getParameter("pId");
-            String parCitaId = request.getParameter("citaId");
-            String hospN = request.getParameter("hosp");
-
-            String ipHost = getHospIp.getIP(Integer.parseInt(hospN));
-
-            if (((parPId != null) && !(parPId.equals("")))) {
-                int pId = Integer.parseInt(parPId);
-                url = "http://" + ipHost + ":8080/proyectoDB2-Hospital1/restC/cita/getCita?pId=" + pId;
-            } else if (((parCitaId != null) && !(parCitaId.equals("")))) {
-                int citaId = Integer.parseInt(parCitaId);
-                url = "http://" + ipHost + ":8080/proyectoDB2-Hospital1/restC/cita/getCita?citaId=" + citaId;
+            String parDpi = request.getParameter("dpi");
+            String parIdCita = request.getParameter("idCita");
+            String parHospNum = request.getParameter("hospNum");
+            if ((parDpi != null) && !(parDpi.equals(""))) {
+                String dpi = parDpi;
+                url = "http://localhost:8080/proyectoDB2-seguro/restAuth/auth/getAuth?dpi=" + dpi;
+            } else if ((parIdCita != null) && !(parIdCita.equals(""))&&(parHospNum != null) && !(parHospNum.equals(""))) {
+                String IdCita = parIdCita;
+                String hospNum = parHospNum;
+                url = "http://localhost:8080/proyectoDB2-seguro/restAuth/auth/getAuth?idCita=" + IdCita+"&hospNum="+hospNum;
             } else {
-                url = "http://" + ipHost + ":8080/proyectoDB2-Hospital1/restC/cita/getCita";
+                url = "http://localhost:8080/proyectoDB2-seguro/restAuth/auth/getAuth";
             }
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -79,5 +85,5 @@ public class GetCita extends HttpServlet {
         // TODO Auto-generated method stub
         doGet(request, response);
     }
-
+    
 }

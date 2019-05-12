@@ -9,15 +9,45 @@ function query_string(variable)
    return(false);
 }
 $(document).ready(
-        function() {
+        function(){
+            datosAuth(); 
+            infoCitas();
+});
+function datosAuth() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:8080/proyectoDB2-seguro/GetAuth',
+                dataType: 'json',
+                data:{
+                    idCita:query_string("idCita"),
+                    hospNum: query_string('hospNum') 
+                },
+                success: function(data) {
+                    var $hospNum = $('#hospNum');
+                    $hospNum.append(data[0].hospital);
+                    var $fecha = $('#fecha');
+                    $fecha.append(data[0].fecha);
+                    var $dpi = $('#dpi');
+                    $dpi.append(data[0].dpi);
+                    var $serv = $('#serv');
+                    $serv.append(data[0].servicio);
+                    var $costo = $('#costo');
+                    $costo.append(data[0].monto);
+                    var $coPago = $('#coPago');
+                    var $pago = (data[0].monto*(1-data[0].porcentaje)).toFixed(2);
+                    $coPago.append($pago);
+                }
+            });
+}
+function infoCitas() {
             var $idNum = $('#idNum');
             $.ajax({
                 type: 'GET',
                 url: 'http://localhost:8080/proyectoDB2-seguro/GetCita',
                 dataType: 'json',
                 data: { 
-                    citaId: query_string('citaId'),
-                    hosp: query_string('hosp') 
+                    citaId: query_string('idCita'),
+                    hosp: query_string('hospNum') 
                 },
                 success: function(data) {
                     var $pData = $('#historialData');
@@ -34,4 +64,7 @@ $(document).ready(
                     $pData.append("<p>No hay datos disponibles</p>");
                 }
             });
-});
+}
+
+
+
