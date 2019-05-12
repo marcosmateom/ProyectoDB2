@@ -59,8 +59,8 @@ public class AuthResource {
             @QueryParam("servicio") String serv,
             @QueryParam("dpi") String dpi) {
         //Verificar si el cliente tiene seguro y si sí que devuelva el porcentaje
-        String porcentaje = verClienteSeg(dpi);
-        if (!porcentaje.equals("")) {
+        double porcentaje = verClienteSeg(dpi);
+        if (porcentaje !=0) {
             //Verificar si el seguro cubre ese servicio en ese hospital
             Boolean servHosp = servHospVerify(hospNum, serv);
             if (servHosp) {
@@ -279,6 +279,7 @@ public class AuthResource {
         }
     }
 }
+
 
 
 
