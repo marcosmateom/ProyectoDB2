@@ -48,6 +48,7 @@ public class GetAuth extends HttpServlet {
         try {
             String url;
             String parDpi = request.getParameter("dpi");
+            String parFecha = request.getParameter("fecha");
             String parIdCita = request.getParameter("idCita");
             String parHospNum = request.getParameter("hospNum");
             if ((parDpi != null) && !(parDpi.equals(""))) {
@@ -57,6 +58,9 @@ public class GetAuth extends HttpServlet {
                 String IdCita = parIdCita;
                 String hospNum = parHospNum;
                 url = "http://localhost:8080/proyectoDB2-seguro/restAuth/auth/getAuth?idCita=" + IdCita+"&hospNum="+hospNum;
+            } else if ((parFecha != null) && !(parFecha.equals(""))) {
+                String fecha = parFecha;
+                url = "http://localhost:8080/proyectoDB2-seguro/restAuth/auth/getAuth?fecha=" + fecha;
             } else {
                 url = "http://localhost:8080/proyectoDB2-seguro/restAuth/auth/getAuth";
             }
