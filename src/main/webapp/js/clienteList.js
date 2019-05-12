@@ -2,7 +2,7 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://25.74.104.162:8080/proyectoDB2-seguro/restC/cliente/getCliente',
+                url: 'http://localhost:8080/proyectoDB2-seguro/restC/cliente/getCliente',
                 dataType: 'json',
                 success: function(data) {
                     var $pData = $('#clientes');
@@ -21,6 +21,7 @@ $(document).ready(
                 }
             });
 });
+
 
 
 

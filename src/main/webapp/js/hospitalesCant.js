@@ -2,7 +2,7 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://25.74.104.162:8080/proyectoDB2-seguro/GetHospitales',
+                url: 'http://localhost:8080/proyectoDB2-seguro/GetHospitales',
                 dataType: 'json',
                 success: function(data) {
                     var $pData = $('#hospnum');
@@ -21,6 +21,7 @@ $(document).ready(
                 }
             });
 });
+
 
 
 

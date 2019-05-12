@@ -22,7 +22,7 @@ $(document).ready(
         function() {
             $.ajax({
                 type: 'GET',
-                url: 'http://25.74.104.162:8080/proyectoDB2-seguro/HospitalServicio',
+                url: 'http://localhost:8080/proyectoDB2-seguro/HospitalServicio',
                 dataType: 'json',
                 data: { 
                     servicioId: query_string('servicioId'),
@@ -46,6 +46,7 @@ $(document).ready(
                 }
             });
 });
+
 
 
 
