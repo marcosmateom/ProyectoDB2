@@ -44,9 +44,10 @@ public class AuthResource {
     public List<Document> getAuth(
             @QueryParam("dpi") String dpi,
             @QueryParam("idAuth") int idAuth,
+            @QueryParam("hospNum") int hospNum,
             @QueryParam("idCita") int idCita) {
         //Obtener # del hospital
-        makeList(dpi, idAuth, idCita);
+        makeList(dpi, idAuth, idCita,hospNum);
 
         return authList;
     }
@@ -132,7 +133,7 @@ public class AuthResource {
         }
     }
 
-    protected void makeList(String dpi, int idAuth, int idCita) {
+    protected void makeList(String dpi, int idAuth, int idCita,int hospNum) {
         try {
             //Conexion mongo
             MongoCollection<Document> coll = CollAuth.collAuth();
@@ -143,7 +144,10 @@ public class AuthResource {
             } else if (idAuth > 0) {
                 auths = (List<Document>) coll.find(new BasicDBObject("_id", idAuth)).into(new ArrayList<Document>());
             } else if (idCita > 0) {
-                auths = (List<Document>) coll.find(new BasicDBObject("idCita", idCita)).into(new ArrayList<Document>());
+                BasicDBObject searchQuery = new BasicDBObject();
+                searchQuery.append("idCita", idCita);
+                searchQuery.append("hospital", hospNum);
+                auths = (List<Document>) coll.find(searchQuery).into(new ArrayList<Document>());
             } else {
                 //Jalar todas las autorizaciones
                 auths = (List<Document>) coll.find().into(new ArrayList<Document>());
