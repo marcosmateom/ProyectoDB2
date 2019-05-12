@@ -59,12 +59,12 @@ public class AuthResource {
             @QueryParam("fecha") String fechaCita,
             @QueryParam("servicio") String serv,
             @QueryParam("nameP") String nameP,
-            @QueryParam("monto") String monto,
+            @QueryParam("monto") double monto,
             @QueryParam("dpi") String dpi,
             @QueryParam("idCita") int idCita) {
         //Verificar si el cliente tiene seguro y si sí que devuelva el porcentaje
-        String porcentaje = verClienteSeg(dpi);
-        if (!porcentaje.equals("")) {
+        double porcentaje = verClienteSeg(dpi);
+        if (porcentaje != 0) {
             //Verificar si el seguro cubre ese servicio en ese hospital
             Boolean servHosp = servHospVerify(hospNum, serv);
             if (servHosp) {
@@ -95,8 +95,8 @@ public class AuthResource {
             @QueryParam("servicio") String serv,
             @QueryParam("estado") String estado,
             @QueryParam("nameP") String nameP,
-            @QueryParam("monto") String monto,
-            @QueryParam("porcentaje") String porcentaje,
+            @QueryParam("monto") double monto,
+            @QueryParam("porcentaje") double porcentaje,
             @QueryParam("dpi") String dpi,
             @QueryParam("idCita") int idCita) {
         if (estado == null) {
@@ -133,7 +133,7 @@ public class AuthResource {
         }
     }
 
-    private Boolean addNewAuth(int hospNum, String fechaCita, String serv, String estado, String dpi, String monto, String porcentaje, int idCita) {
+    private Boolean addNewAuth(int hospNum, String fechaCita, String serv, String estado, String dpi, double monto, double porcentaje, int idCita) {
         MongoCollection<Document> coll = CollAuth.collAuth();
         try {
             int id = 0;
@@ -163,7 +163,7 @@ public class AuthResource {
         }
     }
 
-    private Boolean updateAuth(int idAuth, int hospNum, String fechaCita, String serv, String estado, String dpi, String monto, String porcentaje, int idCita) {
+    private Boolean updateAuth(int idAuth, int hospNum, String fechaCita, String serv, String estado, String dpi, double monto, double porcentaje, int idCita) {
         MongoCollection<Document> coll = CollAuth.collAuth();
         try {
             BasicDBObject updateFields = new BasicDBObject();
@@ -224,8 +224,9 @@ public class AuthResource {
         }
     }
 
-    private String verClienteSeg(String dpi) {
-        String porcentaje = "";
+    private double verClienteSeg(String dpi) {
+        double porcentaje = 0;
+        String porcentajeS = "";
         try {
             // Send data
             URL url = new URL("http://localhost:8080/proyectoDB2-seguro/GetCliente?dpi=" + dpi);
@@ -241,16 +242,23 @@ public class AuthResource {
             }
             JSONArray arrObj = new JSONArray(response2.toString());
             JSONObject obj = arrObj.getJSONObject(0);
-            porcentaje = obj.getString("cobertura");
+            porcentajeS = obj.getString("cobertura");
             rd.close();
-            if (!porcentaje.equals("")) {
+            if (!porcentajeS.equals("")) {
+                porcentajeS = porcentajeS.substring(0, porcentajeS.length() - 1);
+                porcentaje = Double.parseDouble(porcentajeS);
+                porcentaje = porcentaje/100;
                 return porcentaje;
             } else {
-                return porcentaje = "";
+                return porcentaje = 0;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return porcentaje = "";
+            return porcentaje = 0;
         }
     }
 }
+
+
+
+

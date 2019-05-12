@@ -39,7 +39,9 @@ gio\co\hospitales\citas\GetAllCitas.class
 gio\co\seguros\nuevaPoliza.class
 gio\co\seguros\collPoliza.class
 gio\co\seguros\modificarCliente.class
+gio\co\seguros\ws\historial\CollHistorial.class
 gio\co\hospitales\citas\GetCita.class
+gio\co\seguros\ws\historial\HistorialResource.class
 gio\co\hospitales\citas\UpdateCita.class
 gio\co\hospitales\GetHorarios.class
 gio\co\hospitales\pacientes\GetPatient.class
