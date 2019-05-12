@@ -60,9 +60,9 @@
                         </label>
                         
                         <!--campo se debe autorellenar-->
-                        <label>Tipo de poliza:
-                        <input type="text" name="tipoPoliza" id="tipoPolizaC" value="" >
-                        </label>
+                        
+                        <input type="hidden" name="tipoPoliza" id="tipoPolizaC" value="1" >
+                        
                         <input type="hidden" name="asegType" value="1">
                         
                         <label>Doctor / Encargado: 
@@ -84,6 +84,14 @@
     <script type="text/javascript" src="js/docInf.js"></script>
     <script type="text/javascript" src="js/clientInfo.js"></script>
 </html>
+
+
+
+
+
+
+
+
 
 
 

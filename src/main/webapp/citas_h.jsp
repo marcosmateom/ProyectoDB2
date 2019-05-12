@@ -61,7 +61,7 @@
                                     <h1>Citas:</h1>
                                     <a class="button" href="preAgregarCita.jsp">Nueva Cita</a>
                                     <ul class="tabs" data-tabs id="example-tabs">
-                                        <button class="tabs-titles" onclick="openTabs(event, 'panel1',1)"><a href="#panel1" aria-selected="true">Hospital 1</a></button>
+                                        <button class="tabs-titles" onclick="openTabs(event, 'panel1',1)"><a href="#panel1" >Hospital 1</a></button>
                                         <button class="tabs-titles" onclick="openTabs(event, 'panel2', 2)"><a href="#panel2">Hospital 2</a></button>
                                         <button class="tabs-titles" onclick="openTabs(event, 'panel3', 3)"><a href="#panel3">Hospital 3</a></button>
                                         </ul>
@@ -132,10 +132,15 @@
         
    
     <script src="js/fillTabs.js"></script>
+      
    
     </body>
    
 </html>
+
+
+
+
 
 
 

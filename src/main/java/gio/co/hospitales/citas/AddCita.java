@@ -1,5 +1,6 @@
 package gio.co.hospitales.citas;
 
+import gio.co.seguros.getHospIp;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -66,22 +67,13 @@ public class AddCita extends HttpServlet {
             // Send data
             
             String urlHosp;
-            int selectHosp = Integer.parseInt(hospitalnume);
+            //int selectHosp = Integer.parseInt(hospitalnume);
+            
+            String ipHost = getHospIp.getIP(Integer.parseInt(hospitalnume));
              //CAMBIAR PATHS
-            switch (selectHosp){
-                case 1:
-                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
-                    break;
-                case 2:
-                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
-                    break;
-                case 3:
-                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
-                    break;
-                default:
-                        urlHosp = "http://localhost:8080/proyectoDB2-Hospital1/restC/cita/addCita";
-                    break;
-            }
+            
+                        urlHosp = "http://"+ipHost+":8080/proyectoDB2-Hospital1/restC/cita/addCita";
+                    
             URL url = new URL(urlHosp);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
@@ -101,10 +93,10 @@ public class AddCita extends HttpServlet {
             int answ = obj.getInt("in");
             
             if(answ==1){
-                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/citas_h.jsp?in=1");
+                response.sendRedirect("http://25.74.104.162:8080/proyectoDB2-seguro/citas_h.jsp?in=1");
             }
             else{
-                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/citas_h.jsp?in=0");
+                response.sendRedirect("http://25.74.104.162:8080/proyectoDB2-seguro/citas_h.jsp?in=0");
             }
             wr.close();
             rd.close();
@@ -113,6 +105,12 @@ public class AddCita extends HttpServlet {
         }
     }
 }
+
+
+
+
+
+
 
 
 
