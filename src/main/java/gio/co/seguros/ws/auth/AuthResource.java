@@ -14,7 +14,10 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ws.rs.POST;
 import javax.ws.rs.GET;
@@ -84,7 +87,7 @@ public class AuthResource {
             @QueryParam("nameP") String nameP,
             @QueryParam("monto") double monto,
             @QueryParam("dpi") String dpi,
-            @QueryParam("idCita") int idCita) {
+            @QueryParam("idCita") int idCita) throws ParseException {
         //Verificar si el cliente tiene seguro y si sí que devuelva el porcentaje
         double porcentaje = verClienteSeg(dpi);
         if (porcentaje != 0) {
@@ -158,10 +161,11 @@ public class AuthResource {
         }
     }
 
-    private Boolean addNewAuth(int hospNum, String fechaCita, String serv, String estado, String dpi, double monto, double porcentaje, int idCita) {
+    private Boolean addNewAuth(int hospNum, String fechaCita, String serv, String estado, String dpi, double monto, double porcentaje, int idCita) throws ParseException {
         MongoCollection<Document> coll = CollAuth.collAuth();
         try {
             int id = 0;
+            Date fechaDate =new SimpleDateFormat("yyyy-MM-dd").parse(fechaCita);
             //Encontrar el ID del ultimo documento
             List<Document> _idNum;
             int limit = 1;
@@ -172,7 +176,7 @@ public class AuthResource {
             id = _idNum.get(0).getInteger("_id");
             //Insertar el documento
             Document doc = new Document("hospital", hospNum)
-                    .append("fecha", fechaCita)
+                    .append("fecha", fechaDate)
                     .append("servicio", serv)
                     .append("estado", estado)
                     .append("dpi", dpi)
