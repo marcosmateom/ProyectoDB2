@@ -26,7 +26,7 @@ $(document).ready(
 function getServicio() {
     $.ajax({
         type: 'GET',
-        url: 'http://25.74.104.162:8080/proyectoDB2-seguro/GetServices',
+        url: 'http://localhost:8080/proyectoDB2-seguro/GetServices',
         dataType: 'json',
         data: {
             
@@ -50,6 +50,7 @@ function getServicio() {
         }
     });
 }
+
 
 
 

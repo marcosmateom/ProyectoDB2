@@ -93,10 +93,10 @@ public class AddCita extends HttpServlet {
             int answ = obj.getInt("in");
             
             if(answ==1){
-                response.sendRedirect("http://25.74.104.162:8080/proyectoDB2-seguro/citas_h.jsp?in=1");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/citas_h.jsp?in=1");
             }
             else{
-                response.sendRedirect("http://25.74.104.162:8080/proyectoDB2-seguro/citas_h.jsp?in=0");
+                response.sendRedirect("http://localhost:8080/proyectoDB2-seguro/citas_h.jsp?in=0");
             }
             wr.close();
             rd.close();
@@ -105,6 +105,7 @@ public class AddCita extends HttpServlet {
         }
     }
 }
+
 
 
 

@@ -15,7 +15,7 @@ $(document).ready(
             var $idNum = $('#idNum');
             $.ajax({
                 type: 'GET',
-                url: 'http://25.74.104.162:8080/proyectoDB2-seguro/DocInfo',
+                url: 'http://localhost:8080/proyectoDB2-seguro/DocInfo',
                 dataType: 'json',
                 data: { 
                     hosp: query_string('hosp') 
@@ -37,6 +37,7 @@ $(document).ready(
                 }
             });
 });
+
 
 
 
